@@ -1,0 +1,23 @@
+######################
+쉬운 환경 설정
+######################
+
+깃헙 클론
+=====================
+
+먼저 핸즈온랩을 위해 기본 환경이 미리 준비된 소스를 받습니다.
+
+.. code-block:: text
+
+  $ git clone https://github.com/hands-on-labs.XXX
+
+
+TOAST UI Chart 설치
+=====================
+
+TOAST UI Chart는 NPM으로 제공됩니다. 아래와 같이 설치합니다.
+
+.. code-block:: text
+
+  npm install tui-chart
+

@@ -1,0 +1,69 @@
+###################
+대시보드에 도넛 차트 추가하기
+###################
+
+도넛 차트 추가를 위한 문서 확인하기
+=====================
+차트를 사용하기 전에 공식 깃헙의 위키 문서를 참고합니다.
+
+- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#creating-a-donut-chart
+
+도넛 차트 추가를 위한 raw data 가공하기
+=====================
+
+미리 준비해 둔 혈액형별 헌혈현황 데이터를 이용하여 차트를 그리기 위한 데이터를 만듭니다.
+
+.. code-block:: text
+
+  var data = {
+      series: [
+          {
+              name: 'O',
+              data: 234196
+          },
+          {
+              name: 'A',
+              data: 292124
+          },
+          {
+              name: 'B',
+              data: 230728
+          },
+          {
+              name: 'AB',
+              data: 98152
+          }
+      ]
+  };
+
+
+도넛 차트 추가를 위한 기본 옵션 만들기
+=====================
+
+.. code-block:: text
+
+  var options = {
+      chart: {
+          width: 700,
+          height: 700,
+          title: '혈액형별 수혈 현황'
+      },
+      series: {
+          radiusRange: ['40%', '100%']
+      }
+  };
+
+html에 도넛 차트를 그리기 위한 공간 만들기
+=====================
+
+.. code-block:: text
+
+   <div id="donut-chart"></div>
+
+
+도넛 차트의 인스턴스 만들기
+=====================
+
+.. code-block:: text
+
+  var donutChart = tui.chart.pieChart(document.getElementById('donut-chart'), data, options);

@@ -1,0 +1,33 @@
+###################
+빈 페이지에 차트 사용을 위한 환경 만들기
+###################
+
+HTML 파일에 css, js 로드하기
+=====================
+
+.. code-block:: text
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <link rel='stylesheet' type='text/css' href='./node_modules/tui-chart/dist/tui-chart.css'/>
+      <script type='text/javascript' src='./node_modules/tui-chart/dist/tui-chart-all.js'></script>
+    </head>
+    <body>
+    </body>
+  </html>
+
+개발 서버 구동
+=====================
+
+.. code-block:: text
+
+   npm run server
+
+
+이제 결과를 확인해 가며 구현할 수 있습니다.
+
+
+
+
+

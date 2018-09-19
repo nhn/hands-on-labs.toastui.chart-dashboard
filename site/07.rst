@@ -1,0 +1,41 @@
+###################
+도넛 차트에 추가 옵션 적용해보기
+###################
+
+도넛 차트의 showLabel옵션 적용방법 알아보기
+=====================
+- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-series.md#showing-label-on-series-area
+
+도넛 차트에 showLabel옵션 적용하기
+=====================
+
+.. code-block:: text
+
+  //...
+  var options = {
+        //...
+      series: {
+          showLabel: true
+      }
+  };
+
+
+도넛 차트에 showLegend 적용방법 알아보기
+=====================
+
+- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph
+
+도넛 차트에 showLegend 옵션 적용하기
+=====================
+
+
+.. code-block:: text
+
+  //...
+  var options = {
+      series: {
+          showLegend: true,
+          labelAlign: 'center'
+      }
+  };
+
