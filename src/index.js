@@ -143,21 +143,23 @@ const lineColumnOptions = {
 };
 
 
-const lineColumn = tuiChart.comboChart(document.getElementById('line-column'), lineColumnData, lineColumnOptions);
+const lineColumnChart = tuiChart.comboChart(document.getElementById('line-column'), lineColumnData, lineColumnOptions);
 
 
 donutChart.on('changeCheckedLegends', info => {
   const checkedInfo = info[donutChart.chartType];
 
-  // Excute Set Data
+  // For barChart
   barChart.setData(reMakeDataForBarChart(barChartData, checkedInfo));
-  lineColumn.setData(reMakeDataForComboChart(lineColumnData, checkedInfo));
+
+  // For comboChart
+  lineColumnChart.setData(reMakeDataForLineColumnChart(lineColumnData, checkedInfo));
 });
 
 
 // DATA 가공 함수 구현
 
-// 바 차트
+// 바 차트 가공
 function reMakeDataForBarChart(barChartData, checkedInfo) {
   const barChartSeriesData = barChartData.series;
   const newBarChartSeriesData = barChartSeriesData.map((seriesItem, idx) => ({
@@ -171,52 +173,43 @@ function reMakeDataForBarChart(barChartData, checkedInfo) {
   };
 }
 
-// 콤보차트 차트 (컬럼차트, 라인차트)
-function reMakeDataForComboChart(lineColumnData, checkedInfo) {
-  const lineColumnChartSeriesData = lineColumnData.series;
-  const columnChartSeriesData = lineColumnChartSeriesData['column'];
-  const lineChartSeriesData = lineColumnChartSeriesData['line'];
+// 라인 컬럼 차트 가공
+function reMakeDataForLineColumnChart(lineColumnData, checkedInfo) {
+  const comboChartSeriesData = lineColumnData.series;
 
   return {
-    categories: lineColumnData.categories,
-    series: {
-      column: reMakeDataForColumnChart(columnChartSeriesData, checkedInfo),
-      line: reMakeDataForLineChart(lineChartSeriesData, columnChartSeriesData, checkedInfo)
-    }
+      categories: lineColumnData.categories,
+      series: {
+        column: reMakeDataForColumnChart(comboChartSeriesData['column'], checkedInfo),
+        line: reMakeDataForLineChart(comboChartSeriesData['line'], comboChartSeriesData['column'], checkedInfo)
+      }
   };
 }
 
-// 컬럼차트
+
+// 컬럼차트 가공
 function reMakeDataForColumnChart(columnChartSeriesData, checkedInfo) {
-  return columnChartSeriesData.map((seriesItem, idx) => {
-    return Object.assign({}, seriesItem, {
-      visible: checkedInfo[idx]
-    });
-  });
+  return columnChartSeriesData.map((seriesItem, idx) => (
+    Object.assign({}, seriesItem, {visible: checkedInfo[idx]})
+  ));
 }
 
-// 라인차트
+// 라인차트 가공
 function reMakeDataForLineChart(lineChartSeriesData, columnChartSeriesData, checkedInfo) {
-  const makeTotalAverage = function(columnChartSeriesData, checkedInfo) {
-    const checkedCount = checkedInfo.filter(checkedItem => checkedItem).length;
-
+  const makeTotalAverage = (columnChartSeriesData, checkedInfo) => {
     return columnChartSeriesData.reduce((accumulator, seriesItem, idx) => {
       if (checkedInfo[idx]) {
-        accumulator[0] += seriesItem.data[0];
-        accumulator[1] += seriesItem.data[1];
-        accumulator[2] += seriesItem.data[2];
+        accumulator.forEach((accValue, accIdx) => accumulator[accIdx] += seriesItem.data[accIdx]);
       }
 
       return accumulator;
-    }, [0, 0, 0]).map(totalValueForCategory => totalValueForCategory / checkedCount);
+    }, [0, 0, 0]).map(totalValue => totalValue / (checkedInfo.filter(checkInfo => checkInfo).length));
   };
 
-  return lineChartSeriesData.map((seriesItem, idx) => {
-    return {
-      name: seriesItem.name,
-      data: makeTotalAverage(columnChartSeriesData, checkedInfo)
-    };
-  });
+  return lineChartSeriesData.map((seriesItem, idx) => ({
+    name: seriesItem.name,
+    data: makeTotalAverage(columnChartSeriesData, checkedInfo)
+  }));
 }
 
 

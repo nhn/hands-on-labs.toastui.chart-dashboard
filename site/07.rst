@@ -27,15 +27,14 @@
   }
 
 
-바 차트 x, y축 눈금 수치 레이블에 suffix 표현방법 알아보기
+바 차트 x, y축 레이블에 suffix 표현방법 알아보기
 =====================
 
 옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.
 
-- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md
+- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md#setting-suffix
 
-
-바 차트 x, y축 레이블에 suffix 옵션 실제로 적용하기
+바 차트 x, y축 레이블에 suffix 옵션 적용하기
 =====================
 
 아래와 같이 미리 작성된 옵션에 :code:`yAxis.suffix` 옵션을 추가합니다.

@@ -1,15 +1,15 @@
 ###################
-대표차트에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기
+대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기
 ###################
 
-대표차트에서 범례 체크박스를 변경하면 다른 모든 차트에 적용되도록 만듭니다.
+범례 체크박스의 체크 상태가 변경되면 :code:`unchecked` 된 범례는 차트의 그래프에 보이지 않게 됩니다.
 
+이번 단계에서는 대표차트에서 **범례 체크박스** 를 변경하면 다른 모든 차트에 함께 적용되도록 만듭니다. 앞으로는 이 기능을 **범례 동기화 기능** 이라고 명명하겠습니다.
 
 체크박스 옵션 적용을 위한 공식 위키문서 확인하기
 =====================
 
 - https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-legend.md
-
 
 
 대표차트(도넛 차트)를 제외한 모든 차트의 범례 표시 영역을 감추기
@@ -36,9 +36,10 @@
   };
 
 
-
 대표차트(도넛 차트)에 차트에 레전더 체크박스 옵션 적용하기
 =====================
+
+앞에서 확인했던 위키 문서를 참고하여 대표차트의 :code:`legend.visible` 옵션을 활성화 하고 :code:`legend.align` 옵션으로 차트의 가장 상단에 범례 영역을 위치시킵니다.
 
 .. code-block:: javascript
 
@@ -50,10 +51,11 @@
       }
   };
 
-이제 도넛차트 데이터 시리즈별로 체크박스가 생긴것을 확인할 수 있습니다.
+이제 도넛차트에만 혈액형 범례의 체크박스가 생긴것을 확인할 수 있습니다.
 
 
-체크 박스 전체 반영 기능을 구현하기 위하여 위키 문서를 참고하기
+
+범례 동기화 기능을 구현하기 위하여 위키 문서를 참고하기
 =====================
 
 기능을 완성하기 위해서는 아래의 두가지 차트의 기능을 이용해야 합니다.
@@ -66,11 +68,12 @@
 
 - https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-chart.md#change-the-data-in-the-chart
 
-
 체크박스 변경 이벤트 리스너 만들어를 구현하여 나머지 차트에 반영시키기
 =====================
 
-1. 문서를 참고하여 대표차트(도넛차트)의 changeCheckedLegends 이벤트를 구독하기.
+**1. 대표차트(도넛차트)의 changeCheckedLegends 이벤트를 구독하기.**
+
+앞에서 확인한 문서를 바탕으로 대표차트(도넛 차트)의 :code:`changeCheckedLegends` 이벤트를 가로체어 변경된 범례 정보를 확인합니다.
 
 .. code-block:: javascript
 
@@ -79,52 +82,79 @@
   });
 
 
-2. 탐지된 이벤트의 checkedLegends 정보를 바탕으로 unchecked된 범례를 원본 데이터에 표시하여 재가공 하기.
+**2.** :code:`changeCheckedLegends` **이벤트가 발생할 때마다 나머지 '바 차트' 와 '라인-컬럼' 차트의 데이터를 변경하여 다시 그려줍니다.**
 
-원본 데이터의 Series 배열의 아이템에 visible 프로퍼티를 boolean으로 세팅하면 체크 상태를 변경할수 있습니다.
-
-.. code-block:: javascript
-
-  var data = {
-      series: [
-          {
-              name: 'O',
-              data: 234196,
-              visible: true
-          },
-          {
-              name: 'A',
-              data: 292124,
-              visible: false
-          },
-          ...
-      ]
-  };
-
-
-아래의 예처럼 체크 상태를 변경하는 함수를 만듭니다.
+미리 만들어둔 :code:`reMakeDataForBarChart` 와 :code:`reMakeDataForLineColumnChart` 함수를 이용하여 대표차트에서 숨기기로 결정된 범례는 나머지 차트에서도 함께 보이지 않도록 데이터를 가공합니다. 함수 구현과 관련하여 **아래 3번 항목** 을 참고해주세요.
 
 .. code-block:: javascript
 
-  function reflectedCheckedStatusData(checkedInfo, data) {
-    const seriesData = data.series;
-    data.series = seriesData.map(data, function(item, index) {
-      item.visible = checkedInfo[index] ? true : false;
-
-      return item;
-    });
-
-    return data;
-  }
-
+  donutChart.on('changeCheckedLegends', info => {
+    const checkedInfo = info[donutChart.chartType];
   
-3. setData API를 이용해 가공한 데이터를 차트에 반영하기.
+    // For barChart
+    barChart.setData(reMakeDataForBarChart(barChartData, checkedInfo));
+  
+    // For comboChart
+    lineColumnChart.setData(reMakeDataForLineColumnChart(lineColumnData, checkedInfo));
+  });
+
+
+**3. "미리 구현한 데이터 가공 함수" 참고**
+
+가공 함수의 역할은 대표차트의 **혈액형 범례** 에서 그래프로 그리지 않기로 결정된 혈액형에 대하여 나머지 차트 데이터에서도 제거하여 줍니다.
+
+**라인-컬럼 차트** 는 사실 차트 2개(라인차트, 컬럼차트)가 합쳐진 **콤보 차트** 이므로 **라인 차트 가공 함수** 와 **컬럼 차트 가공 함수** 를 함께 구현합니다.
 
 .. code-block:: javascript
 
-  barChart.on('changeCheckedLegends', function(info) {
-    console.log(info);
-    const newData = reflectedCheckedStatusData(info, data);
-
-    columnChart.rerender(newData);
-  });
+  // 바 차트 가공
+  function reMakeDataForBarChart(barChartData, checkedInfo) {
+    const barChartSeriesData = barChartData.series;
+    const newBarChartSeriesData = barChartSeriesData.map((seriesItem, idx) => ({
+      name: seriesItem.name,
+      data: Array.from(seriesItem.data).filter((value, valueIdx) => checkedInfo[valueIdx])
+    }));
+  
+    return {
+      categories: Array.from(barChartData.categories).filter((value, valueIdx) => checkedInfo[valueIdx]),
+      series: newBarChartSeriesData,
+    };
+  }
+  
+  // 라인-컬럼 차트 가공
+  function reMakeDataForLineColumnChart(lineColumnData, checkedInfo) {
+    const comboChartSeriesData = lineColumnData.series;
+  
+    return {
+        categories: lineColumnData.categories,
+        series: {
+          column: reMakeDataForColumnChart(comboChartSeriesData['column'], checkedInfo),
+          line: reMakeDataForLineChart(comboChartSeriesData['line'], comboChartSeriesData['column'], checkedInfo)
+        }
+    };
+  }
+  
+  // 컬럼차트 가공
+  function reMakeDataForColumnChart(columnChartSeriesData, checkedInfo) {
+    return columnChartSeriesData.map((seriesItem, idx) => (
+      Object.assign({}, seriesItem, {visible: checkedInfo[idx]})
+    ));
+  }
+  
+  // 라인차트 가공
+  function reMakeDataForLineChart(lineChartSeriesData, columnChartSeriesData, checkedInfo) {
+    const makeTotalAverage = (columnChartSeriesData, checkedInfo) => {
+      return columnChartSeriesData.reduce((accumulator, seriesItem, idx) => {
+        if (checkedInfo[idx]) {
+          accumulator.forEach((accValue, accIdx) => accumulator[accIdx] += seriesItem.data[accIdx]);
+        }
+  
+        return accumulator;
+      }, [0, 0, 0]).map(totalValue => totalValue / (checkedInfo.filter(checkInfo => checkInfo).length));
+    };
+  
+    return lineChartSeriesData.map((seriesItem, idx) => ({
+      name: seriesItem.name,
+      data: makeTotalAverage(columnChartSeriesData, checkedInfo)
+    }));
+  }
