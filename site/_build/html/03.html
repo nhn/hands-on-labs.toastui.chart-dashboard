@@ -79,8 +79,9 @@
 <li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02.html">2. 쉬운 환경 설정</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. 빈 페이지에 차트 사용을 위한 환경 만들기</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#html-css-js">3.1. HTML 파일에 css, js 로드하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">3.2. 개발 서버 구동</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#html">3.1. HTML 파일 작성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#javascrit">3.2. Javascrit 파일 작성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.3. 개발 서버 구동</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="04.html">4. 대시보드에 바 차트 추가하기</a></li>
@@ -89,7 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="07.html">7. 도넛 차트에 추가 옵션 적용해보기</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08.html">8. 라인-컬럼 콤보차트 추가하기</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09.html">9. 대표차트에 레전드 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10.html">10. Congratulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.html">10. 정리</a></li>
 </ul>
 
             
@@ -154,23 +155,29 @@
             
   <div class="section" id="id1">
 <h1>3. 빈 페이지에 차트 사용을 위한 환경 만들기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
-<div class="section" id="html-css-js">
-<h2>3.1. HTML 파일에 css, js 로드하기<a class="headerlink" href="#html-css-js" title="제목 주소">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;./node_modules/tui-chart/dist/tui-chart.css&#39;/&gt;
-    &lt;script type=&#39;text/javascript&#39; src=&#39;./node_modules/tui-chart/dist/tui-chart-all.js&#39;&gt;&lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+<div class="section" id="html">
+<h2>3.1. HTML 파일 작성<a class="headerlink" href="#html" title="제목 주소">¶</a></h2>
+<p><code class="code docutils literal notranslate"><span class="pre">src/index.html</span></code> 을 열어서 body에 내용을 추가합니다.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>...
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>Chart DashBoard<span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="javascrit">
+<h2>3.2. Javascrit 파일 작성<a class="headerlink" href="#javascrit" title="제목 주소">¶</a></h2>
+<p><code class="code docutils literal notranslate"><span class="pre">src/index.js</span></code> 을 열어서 tui-chart 모듈과 css를 import 합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="kr">import</span> <span class="s1">&#39;../node_modules/tui-chart/dist/tui-chart.css&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">tuiChart</span> <span class="nx">from</span> <span class="s1">&#39;tui-chart&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
-<h2>3.2. 개발 서버 구동<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>npm run server
+<h2>3.3. 개발 서버 구동<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm run server
 </pre></div>
 </div>
 <p>이제 결과를 확인해 가며 구현할 수 있습니다.</p>

@@ -2,25 +2,35 @@
 빈 페이지에 차트 사용을 위한 환경 만들기
 ###################
 
-HTML 파일에 css, js 로드하기
+HTML 파일 작성
 =====================
 
-.. code-block:: text
+:code:`src/index.html` 을 열어서 body에 내용을 추가합니다.
 
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <link rel='stylesheet' type='text/css' href='./node_modules/tui-chart/dist/tui-chart.css'/>
-      <script type='text/javascript' src='./node_modules/tui-chart/dist/tui-chart-all.js'></script>
-    </head>
+.. code-block:: html
+
+    ...
     <body>
+      <header>Chart DashBoard</header>
     </body>
-  </html>
+    ...
+
+Javascrit 파일 작성
+=====================
+
+:code:`src/index.js` 을 열어서 tui-chart 모듈과 css를 import 합니다.
+
+.. code-block:: javascript
+
+    ...
+    import '../node_modules/tui-chart/dist/tui-chart.css';
+    import tuiChart from 'tui-chart';
+
 
 개발 서버 구동
 =====================
 
-.. code-block:: text
+.. code-block:: bash
 
    npm run server
 

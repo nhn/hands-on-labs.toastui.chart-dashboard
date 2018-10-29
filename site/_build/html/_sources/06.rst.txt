@@ -13,9 +13,9 @@
 
 미리 준비해 둔 혈액형별 헌혈현황 데이터를 이용하여 차트를 그리기 위한 데이터를 만듭니다.
 
-.. code-block:: text
+.. code-block:: javascript
 
-  var data = {
+  const donutChartData = {
       series: [
           {
               name: 'O',
@@ -40,9 +40,9 @@
 도넛 차트 추가를 위한 기본 옵션 만들기
 =====================
 
-.. code-block:: text
+.. code-block:: javascript
 
-  var options = {
+  const donutChartOptions = {
       chart: {
           width: 700,
           height: 700,
@@ -56,7 +56,7 @@
 html에 도넛 차트를 그리기 위한 공간 만들기
 =====================
 
-.. code-block:: text
+.. code-block:: html
 
    <div id="donut-chart"></div>
 
@@ -64,6 +64,6 @@ html에 도넛 차트를 그리기 위한 공간 만들기
 도넛 차트의 인스턴스 만들기
 =====================
 
-.. code-block:: text
+.. code-block:: javascript
 
-  var donutChart = tui.chart.pieChart(document.getElementById('donut-chart'), data, options);
+  const donutChart = tuiChart.pieChart(document.getElementById('donut-chart'), donutChartData, donutChartOptions);

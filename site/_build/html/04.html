@@ -92,7 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="07.html">7. 도넛 차트에 추가 옵션 적용해보기</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08.html">8. 라인-컬럼 콤보차트 추가하기</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09.html">9. 대표차트에 레전드 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10.html">10. Congratulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.html">10. 정리</a></li>
 </ul>
 
             
@@ -167,60 +167,51 @@
 <div class="section" id="raw-data">
 <h2>4.2. 바 차트 추가를 위한 raw data 가공하기<a class="headerlink" href="#raw-data" title="제목 주소">¶</a></h2>
 <p>미리 준비해 둔 혈액형별 헌혈현황 데이터를 이용하여 차트를 그리기 위한 데이터를 만듭니다.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>var data = {
-    categories: [&#39;남자&#39;, &#39;여자&#39; , &#39;모두&#39;],
-    series: [
-        {
-            name: &#39;O&#39;,
-            data: [164350, 69846, 234196]
-        },
-        {
-            name: &#39;A&#39;,
-            data: [207708, 84416, 292124]
-        },
-        {
-            name: &#39;B&#39;,
-            data: [162275, 68453, 230728]
-        },
-        {
-            name: &#39;AB&#39;,
-            data: [69444, 28708, 98152]
-        }
-    ]
-};
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">barChartData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;AB&#39;</span><span class="p">],</span>
+    <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;남자&#39;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">164350</span><span class="p">,</span> <span class="mi">207708</span><span class="p">,</span> <span class="mi">162275</span><span class="p">,</span> <span class="mi">69444</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;여자&#39;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">69846</span><span class="p">,</span> <span class="mi">84416</span><span class="p">,</span> <span class="mi">68453</span><span class="p">,</span> <span class="mi">28708</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
 <h2>4.3. 바 차트 추가를 위한 기본 옵션 만들기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>var options = {
-    chart: {
-        width: 1160,
-        height: 650,
-        title: &#39;혈액형별 수혈 현황&#39;,
-        format: &#39;1,000&#39;
-    },
-    yAxis: {
-        title: &#39;혈액형&#39;
-    },
-    xAxis: {
-        title: &#39;수혈자&#39;,
-        min: 0,
-        suffix: &#39;명&#39;
-    }
-};
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">barChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">1160</span><span class="p">,</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="mi">650</span><span class="p">,</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;혈액형별 수혈 현황&#39;</span><span class="p">,</span>
+        <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;1,000&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;혈액형&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;수혈자&#39;</span><span class="p">,</span>
+        <span class="nx">suffix</span><span class="o">:</span> <span class="s1">&#39;명&#39;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="html">
 <h2>4.4. html에 바 차트를 그리기 위한 공간 만들기<a class="headerlink" href="#html" title="제목 주소">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;div id=&quot;bar-chart&quot;&gt;&lt;/div&gt;
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bar-chart&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
 <h2>4.5. 바 차트의 인스턴스 만들기<a class="headerlink" href="#id4" title="제목 주소">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>var barChart = tui.chart.barChart(document.getElementById(&#39;bar-chart&#39;), data, options);
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">barChart</span> <span class="o">=</span> <span class="nx">tuiChart</span><span class="p">.</span><span class="nx">barChart</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;bar-chart&#39;</span><span class="p">),</span> <span class="nx">barChartData</span><span class="p">,</span> <span class="nx">barChartOptions</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

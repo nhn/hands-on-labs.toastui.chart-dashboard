@@ -11,9 +11,9 @@
 라인-컬럼 차트 추가를 위한 raw data 가공하기
 =====================
 
-.. code-block:: text
+.. code-block:: javascript
 
-    var data = {
+    const lineColumnData = {
         categories: ['남자', '여자' , '모두'],
         series: {
             column: [
@@ -45,14 +45,12 @@
 
 
 
-
-
 라인-컬럼 차트 추가를 위한 기본 옵션 만들기
 =====================
 
-.. code-block:: text
+.. code-block:: javascript
 
-  var options = {
+  const lineColumnOptions = {
       chart: {
           width: 1160,
           height: 650,
@@ -72,13 +70,13 @@
 html에 바 차트를 그리기 위한 공간 만들기
 =====================
 
-.. code-block:: text
+.. code-block:: html
 
    <div id="line-column"></div>
 
 라인-컬럼 차트의 인스턴스 만들기
 =====================
 
-.. code-block:: text
+.. code-block:: javascript
 
-  var lineColumn = tui.chart.pieChart(document.getElementById('line-column'), data, options);
+  const lineColumn = tuiChart.comboChart(document.getElementById('line-column'), lineColumnData, lineColumnOptions);

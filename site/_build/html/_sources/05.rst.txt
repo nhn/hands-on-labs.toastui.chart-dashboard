@@ -12,11 +12,11 @@
 바 차트의 diverging옵션 적용하기
 =====================
 
-아래와 같이 미리 작성된 옵션에 `series.diverging` 옵션을 추가합니다.
+아래와 같이 미리 작성된 옵션에 :code:`series.diverging` 옵션을 추가합니다.
 
-.. code-block:: text
+.. code-block:: javascript
 
-  var options = {
+  const barChartOptions = {
         //...
       series: {
           diverging: true
@@ -34,14 +34,14 @@
 바 차트에 y축 센터정렬 옵션 적용하기
 =====================
 
-아래와 같이 미리 작성된 옵션에 `yAxis.align` 옵션을 추가합니다.
+아래와 같이 미리 작성된 옵션에 :code:`yAxis.align` 옵션을 추가합니다.
 
-.. code-block:: text
+.. code-block:: javascript
 
-  var options = {
+  const barChartOptions = {
         //...
       yAxis: {
-          title: 'Age Group',
+          title: '혈액형',
           align: 'center'
       }
   };

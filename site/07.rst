@@ -6,13 +6,13 @@
 =====================
 - https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-series.md#showing-label-on-series-area
 
-도넛 차트에 showLabel옵션 적용하기
+도넛 차트에 :code:`series.showLabel` 옵션 적용하기
 =====================
 
-.. code-block:: text
+.. code-block:: javascript
 
   //...
-  var options = {
+  const donutChartOptions = {
         //...
       series: {
           showLabel: true
@@ -20,7 +20,7 @@
   };
 
 
-도넛 차트에 showLegend 적용방법 알아보기
+도넛 차트에 :code:`series.showLegend` 및 code:`series.labelAlign` 적용방법 알아보기
 =====================
 
 - https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph
@@ -28,14 +28,13 @@
 도넛 차트에 showLegend 옵션 적용하기
 =====================
 
-
-.. code-block:: text
+.. code-block:: javascript
 
   //...
-  var options = {
+  const donutChartOptions = {
       series: {
           showLegend: true,
-          labelAlign: 'center'
+          labelAlign: 'outer'
       }
   };
 

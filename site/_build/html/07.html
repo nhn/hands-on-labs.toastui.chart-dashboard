@@ -84,14 +84,14 @@
 <li class="toctree-l1"><a class="reference internal" href="06.html">6. 대시보드에 도넛 차트 추가하기</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">7. 도넛 차트에 추가 옵션 적용해보기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#showlabel">7.1. 도넛 차트의 showLabel옵션 적용방법 알아보기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">7.2. 도넛 차트에 showLabel옵션 적용하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#showlegend">7.3. 도넛 차트에 showLegend 적용방법 알아보기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">7.4. 도넛 차트에 showLegend 옵션 적용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#series-showlabel">7.2. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">series.showLabel</span></code> 옵션 적용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#series-showlegend-code-series-labelalign">7.3. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">series.showLegend</span></code> 및 code:<cite>series.labelAlign</cite> 적용방법 알아보기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#showlegend">7.4. 도넛 차트에 showLegend 옵션 적용하기</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="08.html">8. 라인-컬럼 콤보차트 추가하기</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09.html">9. 대표차트에 레전드 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10.html">10. Congratulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.html">10. 정리</a></li>
 </ul>
 
             
@@ -162,33 +162,33 @@
 <li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-series.md#showing-label-on-series-area">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-series.md#showing-label-on-series-area</a></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>7.2. 도넛 차트에 showLabel옵션 적용하기<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>//...
-var options = {
-      //...
-    series: {
-        showLabel: true
-    }
-};
+<div class="section" id="series-showlabel">
+<h2>7.2. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">series.showLabel</span></code> 옵션 적용하기<a class="headerlink" href="#series-showlabel" title="제목 주소">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//...</span>
+<span class="kr">const</span> <span class="nx">donutChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="c1">//...</span>
+    <span class="nx">series</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">showLabel</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="showlegend">
-<h2>7.3. 도넛 차트에 showLegend 적용방법 알아보기<a class="headerlink" href="#showlegend" title="제목 주소">¶</a></h2>
+<div class="section" id="series-showlegend-code-series-labelalign">
+<h2>7.3. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">series.showLegend</span></code> 및 code:<cite>series.labelAlign</cite> 적용방법 알아보기<a class="headerlink" href="#series-showlegend-code-series-labelalign" title="제목 주소">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph</a></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>7.4. 도넛 차트에 showLegend 옵션 적용하기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>//...
-var options = {
-    series: {
-        showLegend: true,
-        labelAlign: &#39;center&#39;
-    }
-};
+<div class="section" id="showlegend">
+<h2>7.4. 도넛 차트에 showLegend 옵션 적용하기<a class="headerlink" href="#showlegend" title="제목 주소">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//...</span>
+<span class="kr">const</span> <span class="nx">donutChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">series</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">showLegend</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">labelAlign</span><span class="o">:</span> <span class="s1">&#39;outer&#39;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </div>

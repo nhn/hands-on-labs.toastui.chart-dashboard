@@ -86,7 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="08.html">8. 라인-컬럼 콤보차트 추가하기</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">9. 대표차트에 레전드 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">9.1. 체크박스 옵션 적용을 위한 공식 위키문서 확인하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">9.2. 대표차트에 차트에 레전더 체크박스 옵션 적용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">9.2. 대표차트(도넛 차트)에 차트에 레전더 체크박스 옵션 적용하기</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">9.3. 체크 박스 전체 반영 기능을 구현하기 위하여 위키 문서를 참고하기</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">9.4. 체크박스 변경 이벤트 리스너 만들어를 구현하여 나머지 차트에 반영시키기</a></li>
 </ul>
@@ -163,34 +163,87 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h2>9.2. 대표차트에 차트에 레전더 체크박스 옵션 적용하기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>//...
-var options = {
-    legend: {
-        align: &#39;top&#39;
-    }
-};
+<h2>9.2. 대표차트(도넛 차트)에 차트에 레전더 체크박스 옵션 적용하기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//...</span>
+<span class="kr">const</span> <span class="nx">donutChartData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">visible</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">align</span><span class="o">:</span> <span class="s1">&#39;top&#39;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
 </pre></div>
 </div>
-<p>이제 대표차트에 데이터 시리즈별로 체크박스가 생긴것을 확인할 수 있습니다.</p>
+<p>이제 도넛차트 데이터 시리즈별로 체크박스가 생긴것을 확인할 수 있습니다.</p>
 </div>
 <div class="section" id="id4">
 <h2>9.3. 체크 박스 전체 반영 기능을 구현하기 위하여 위키 문서를 참고하기<a class="headerlink" href="#id4" title="제목 주소">¶</a></h2>
 <p>기능을 완성하기 위해서는 아래의 두가지 차트의 기능을 이용해야 합니다.</p>
-<p>selectLegend 이벤트 탐지하기
-- <a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-legend.md#getting-information-of-legend-when-selecting-legend">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-legend.md#getting-information-of-legend-when-selecting-legend</a></p>
-<p>rerender api를 이용해 체크된 데이터만 표시하여 다시 그리기
-- <a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-legend.md#getting-information-of-legend-when-selecting-legend">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-legend.md#getting-information-of-legend-when-selecting-legend</a></p>
+<ol class="arabic simple">
+<li>changeCheckedLegends 이벤트 탐지하기</li>
+</ol>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-legend.md#getting-checkbox-status-infomation-of-legend-when-checking-legend">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-legend.md#getting-checkbox-status-infomation-of-legend-when-checking-legend</a></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>setData API를 이용해 체크된 데이터만 표시하여 다시 그리기</li>
+</ol>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-chart.md#change-the-data-in-the-chart">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-chart.md#change-the-data-in-the-chart</a></li>
+</ul>
 </div>
 <div class="section" id="id5">
 <h2>9.4. 체크박스 변경 이벤트 리스너 만들어를 구현하여 나머지 차트에 반영시키기<a class="headerlink" href="#id5" title="제목 주소">¶</a></h2>
-<p>문서를 참고하여 대표차트의 체크박스 이벤트 리스터를 구현하여 나머지 차트들을 다시 그리도록 합니다.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>barChart.on(&#39;selectLegend&#39;, function(info) {
-  console.log(info);
-    columnChart.rerender({
-      pie: [true, false, true, false, true, false]
-    });
-});
+<ol class="arabic simple">
+<li>문서를 참고하여 대표차트(도넛차트)의 changeCheckedLegends 이벤트를 구독하기.</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">donutChart</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;changeCheckedLegends&#39;</span><span class="p">,</span> <span class="nx">info</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">info</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>탐지된 이벤트의 checkedLegends 정보를 바탕으로 unchecked된 범례를 원본 데이터에 표시하여 재가공 하기.</li>
+</ol>
+<p>원본 데이터의 Series 배열의 아이템에 visible 프로퍼티를 boolean으로 세팅하면 체크 상태를 변경할수 있습니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="mi">234196</span><span class="p">,</span>
+            <span class="nx">visible</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="mi">292124</span><span class="p">,</span>
+            <span class="nx">visible</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="p">},</span>
+        <span class="p">...</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>아래의 예처럼 체크 상태를 변경하는 함수를 만듭니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">reflectedCheckedStatusData</span><span class="p">(</span><span class="nx">checkedInfo</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">seriesData</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="nx">series</span> <span class="o">=</span> <span class="nx">seriesData</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">visible</span> <span class="o">=</span> <span class="nx">checkedInfo</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="nx">item</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>setData API를 이용해 가공한 데이터를 차트에 반영하기.</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">barChart</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;changeCheckedLegends&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">info</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">info</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">newData</span> <span class="o">=</span> <span class="nx">reflectedCheckedStatusData</span><span class="p">(</span><span class="nx">info</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+
+  <span class="nx">columnChart</span><span class="p">.</span><span class="nx">rerender</span><span class="p">(</span><span class="nx">newData</span><span class="p">);</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 </div>
