@@ -163,11 +163,11 @@ function reMakeDataForBarChart(barChartData, checkedInfo) {
   const barChartSeriesData = barChartData.series;
   const newBarChartSeriesData = barChartSeriesData.map((seriesItem, idx) => ({
     name: seriesItem.name,
-    data: checkedFilter(seriesItem.data, checkedInfo)
+    data: Array.from(seriesItem.data).filter((value, valueIdx) => checkedInfo[valueIdx])
   }));
 
   return {
-    categories: checkedFilter(barChartData.categories, checkedInfo),
+    categories: Array.from(barChartData.categories).filter((value, valueIdx) => checkedInfo[valueIdx]),
     series: newBarChartSeriesData,
   };
 }
@@ -198,6 +198,20 @@ function reMakeDataForColumnChart(columnChartSeriesData, checkedInfo) {
 
 // 라인차트
 function reMakeDataForLineChart(lineChartSeriesData, columnChartSeriesData, checkedInfo) {
+  const makeTotalAverage = function(columnChartSeriesData, checkedInfo) {
+    const checkedCount = checkedInfo.filter(checkedItem => checkedItem).length;
+
+    return columnChartSeriesData.reduce((accumulator, seriesItem, idx) => {
+      if (checkedInfo[idx]) {
+        accumulator[0] += seriesItem.data[0];
+        accumulator[1] += seriesItem.data[1];
+        accumulator[2] += seriesItem.data[2];
+      }
+
+      return accumulator;
+    }, [0, 0, 0]).map(totalValueForCategory => totalValueForCategory / checkedCount);
+  };
+
   return lineChartSeriesData.map((seriesItem, idx) => {
     return {
       name: seriesItem.name,
@@ -207,20 +221,3 @@ function reMakeDataForLineChart(lineChartSeriesData, columnChartSeriesData, chec
 }
 
 
-function checkedFilter(data, checkedInfo) {
-  return Array.from(data).filter((value, valueIdx) => checkedInfo[valueIdx]);
-}
-
-function makeTotalAverage(columnChartSeriesData, checkedInfo) {
-  const checkedCount = checkedInfo.filter(checkedItem => checkedItem).length;
-
-  return columnChartSeriesData.reduce((accumulator, seriesItem, idx) => {
-    if (checkedInfo[idx]) {
-      accumulator[0] += seriesItem.data[0];
-      accumulator[1] += seriesItem.data[1];
-      accumulator[2] += seriesItem.data[2];
-    }
-
-    return accumulator;
-  }, [0, 0, 0]).map(totalValueForCategory => totalValueForCategory / checkedCount);
-}
