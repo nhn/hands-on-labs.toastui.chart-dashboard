@@ -1,47 +1,61 @@
 ###################
-바 차트에 추가 옵션 적용해보기
+도넛 차트에 추가 옵션 적용해보기
 ###################
 
-바 차트의 diverging옵션 적용방법 알아보기
+도넛 차트의 showLabel옵션 적용방법 알아보기
+=====================
+- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-series.md#showing-label-on-series-area
+
+도넛 차트에 :code:`series.showLabel` 옵션 적용하기
 =====================
 
-옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.
-
-- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-bar,column.md#creating-a-diverging-chart
-
-바 차트의 diverging옵션 적용하기
-=====================
-
-아래와 같이 미리 작성된 옵션에 :code:`series.diverging` 옵션을 추가합니다.
+:code:`series.showLabel` 옵션을 적용하여 도넛 차트 내에 수치를 표현합니다.
 
 .. code-block:: javascript
 
-  const barChartOptions = {
+  //...
+  const donutChartOptions = {
         //...
       series: {
-          diverging: true
+          showLabel: true
       }
   };
 
 
-바 차트의 y축 센터정렬 옵션 알아보기
+도넛 차트에 :code:`chart.format` 옵션 적용하기
 =====================
 
-옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.
-
-- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-bar,column.md#diverging-bar-chart-which-yaxis-is-placed-at-the-center
-
-바 차트에 y축 센터정렬 옵션 적용하기
-=====================
-
-아래와 같이 미리 작성된 옵션에 :code:`yAxis.align` 옵션을 추가합니다.
+:code:`series.showLabel` 옵션을 적용하여 나타난 값이 number 포멧으로 나오지 않아서 어색한 부분을 확인할 수 있습니다.
+앞서 살펴봤던 차트의 일반적인 기능을 소개하는 문서에서 값을 포멧팅하는 부분을 찾아 아래처럼 적용하여 숫자형식으로 포멧팅합니다.
 
 .. code-block:: javascript
 
-  const barChartOptions = {
-        //...
-      yAxis: {
-          title: '혈액형',
-          align: 'center'
+  const donutChartOptions = {
+    chart: {
+        ...
+        format: '1,000'
+    }
+    ...
+  };
+
+
+도넛 차트에 :code:`series.showLegend` 및 :code:`series.labelAlign` 적용방법 알아보기
+=====================
+
+- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph
+
+도넛 차트에 showLegend 옵션 적용하기
+=====================
+
+문서에서 확인한 옵션을 실제로 적용합니다.
+
+.. code-block:: javascript
+
+  //...
+  const donutChartOptions = {
+      series: {
+          showLegend: true,
+          labelAlign: 'outer'
       }
   };
+

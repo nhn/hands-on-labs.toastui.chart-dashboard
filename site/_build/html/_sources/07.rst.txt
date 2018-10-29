@@ -1,40 +1,51 @@
 ###################
-도넛 차트에 추가 옵션 적용해보기
+바 차트에 추가 옵션 적용해보기
 ###################
 
-도넛 차트의 showLabel옵션 적용방법 알아보기
+바 차트의 적용할 축 타이틀 옵션 (:code:`yAxis.title, xAxis.title`) 알아보기
 =====================
-- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-series.md#showing-label-on-series-area
 
-도넛 차트에 :code:`series.showLabel` 옵션 적용하기
+옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.
+
+- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md
+
+바 차트의 x, y축에 타이틀 옵션 (:code:`yAxis.title, xAxis.title`) 적용하기
 =====================
+
+아래와 같이 미리 작성된 옵션에 추가하여 x, y축에 타이틀을 표기해 봅시다.
 
 .. code-block:: javascript
 
-  //...
-  const donutChartOptions = {
+  const barChartOptions = {
+    ...
+    yAxis: {
+        title: '혈액형'
+    },
+    xAxis: {
+        title: '수혈자'
+    }
+  }
+
+
+바 차트 x, y축 눈금 수치 레이블에 suffix 표현방법 알아보기
+=====================
+
+옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.
+
+- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md
+
+
+바 차트 x, y축 레이블에 suffix 옵션 실제로 적용하기
+=====================
+
+아래와 같이 미리 작성된 옵션에 :code:`yAxis.suffix` 옵션을 추가합니다.
+
+.. code-block:: javascript
+
+  const barChartOptions = {
         //...
-      series: {
-          showLabel: true
+      xAxis: {
+        title: '수혈자',
+        suffix: '명'
       }
   };
-
-
-도넛 차트에 :code:`series.showLegend` 및 code:`series.labelAlign` 적용방법 알아보기
-=====================
-
-- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph
-
-도넛 차트에 showLegend 옵션 적용하기
-=====================
-
-.. code-block:: javascript
-
-  //...
-  const donutChartOptions = {
-      series: {
-          showLegend: true,
-          labelAlign: 'outer'
-      }
-  };
-

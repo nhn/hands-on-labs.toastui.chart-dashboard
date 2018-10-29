@@ -1,4 +1,3 @@
-
 import './index.html';
 import '../node_modules/tui-chart/dist/tui-chart.css';
 import tuiChart from 'tui-chart';
@@ -33,7 +32,8 @@ const donutChartOptions = {
   chart: {
     width: 400,
     height: 400,
-    title: '혈액형별 범례'
+    title: '혈액형별 범례',
+    format: '1,000'
   },
   series: {
     radiusRange: ['40%', '100%'],
@@ -76,8 +76,7 @@ const barChartOptions = {
   },
   yAxis: {
     title: '혈액형',
-    min: 0,
-    align: 'center'
+    min: 0
   },
   xAxis: {
     title: '수혈자',
@@ -129,7 +128,7 @@ const lineColumnOptions = {
   chart: {
     width: 1000,
     height: 500,
-    title: '성별로 그룹화 및 평균값 계산',
+    title: '성별로 그룹화한 및 평균값 계산',
     format: '1,000'
   },
   yAxis: {

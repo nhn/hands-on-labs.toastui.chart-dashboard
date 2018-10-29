@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>9. 대표차트에 레전드 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기 &mdash; Dooray! Messenger Incoming Hook Sample 1.0 documentation</title>
+  <title>9. 대표차트에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기 &mdash; Dooray! Messenger Incoming Hook Sample 1.0 documentation</title>
   
 
   
@@ -79,16 +79,17 @@
 <li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02.html">2. 쉬운 환경 설정</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03.html">3. 빈 페이지에 차트 사용을 위한 환경 만들기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04.html">4. 대시보드에 바 차트 추가하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05.html">5. 바 차트에 추가 옵션 적용해보기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06.html">6. 대시보드에 도넛 차트 추가하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07.html">7. 도넛 차트에 추가 옵션 적용해보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">4. 대시보드에 도넛 차트 추가하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">5. 도넛 차트에 추가 옵션 적용해보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">6. 대시보드에 바 차트 추가하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">7. 바 차트에 추가 옵션 적용해보기</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08.html">8. 라인-컬럼 콤보차트 추가하기</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">9. 대표차트에 레전드 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. 대표차트에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">9.1. 체크박스 옵션 적용을 위한 공식 위키문서 확인하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">9.2. 대표차트(도넛 차트)에 차트에 레전더 체크박스 옵션 적용하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">9.3. 체크 박스 전체 반영 기능을 구현하기 위하여 위키 문서를 참고하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">9.4. 체크박스 변경 이벤트 리스너 만들어를 구현하여 나머지 차트에 반영시키기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">9.2. 대표차트(도넛 차트)를 제외한 모든 차트의 범례 표시 영역을 감추기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">9.3. 대표차트(도넛 차트)에 차트에 레전더 체크박스 옵션 적용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">9.4. 체크 박스 전체 반영 기능을 구현하기 위하여 위키 문서를 참고하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">9.5. 체크박스 변경 이벤트 리스너 만들어를 구현하여 나머지 차트에 반영시키기</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="10.html">10. 정리</a></li>
@@ -137,7 +138,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>9. 대표차트에 레전드 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</li>
+      <li>9. 대표차트에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -155,7 +156,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>9. 대표차트에 레전드 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<h1>9. 대표차트에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<p>대표차트에서 범례 체크박스를 변경하면 다른 모든 차트에 적용되도록 만듭니다.</p>
 <div class="section" id="id2">
 <h2>9.1. 체크박스 옵션 적용을 위한 공식 위키문서 확인하기<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
 <ul class="simple">
@@ -163,7 +165,28 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h2>9.2. 대표차트(도넛 차트)에 차트에 레전더 체크박스 옵션 적용하기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<h2>9.2. 대표차트(도넛 차트)를 제외한 모든 차트의 범례 표시 영역을 감추기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<p>대표 차트에서만 범례를 보이거나 보이지 않도록 설정하고 싶기 때문에 대표차트를 제외한 차트에서는 범례 체크박스 영역이 필요 없음으로 문서에서 확인한 <code class="code docutils literal notranslate"><span class="pre">legend.visible</span></code> 옵션을 활용하여 숨깁니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//...</span>
+<span class="kr">const</span> <span class="nx">barChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">visible</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="p">...</span>
+<span class="kr">const</span> <span class="nx">lineColumnOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">visible</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>9.3. 대표차트(도넛 차트)에 차트에 레전더 체크박스 옵션 적용하기<a class="headerlink" href="#id4" title="제목 주소">¶</a></h2>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//...</span>
 <span class="kr">const</span> <span class="nx">donutChartData</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
@@ -175,8 +198,8 @@
 </div>
 <p>이제 도넛차트 데이터 시리즈별로 체크박스가 생긴것을 확인할 수 있습니다.</p>
 </div>
-<div class="section" id="id4">
-<h2>9.3. 체크 박스 전체 반영 기능을 구현하기 위하여 위키 문서를 참고하기<a class="headerlink" href="#id4" title="제목 주소">¶</a></h2>
+<div class="section" id="id5">
+<h2>9.4. 체크 박스 전체 반영 기능을 구현하기 위하여 위키 문서를 참고하기<a class="headerlink" href="#id5" title="제목 주소">¶</a></h2>
 <p>기능을 완성하기 위해서는 아래의 두가지 차트의 기능을 이용해야 합니다.</p>
 <ol class="arabic simple">
 <li>changeCheckedLegends 이벤트 탐지하기</li>
@@ -191,8 +214,8 @@
 <li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-chart.md#change-the-data-in-the-chart">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-chart.md#change-the-data-in-the-chart</a></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2>9.4. 체크박스 변경 이벤트 리스너 만들어를 구현하여 나머지 차트에 반영시키기<a class="headerlink" href="#id5" title="제목 주소">¶</a></h2>
+<div class="section" id="id6">
+<h2>9.5. 체크박스 변경 이벤트 리스너 만들어를 구현하여 나머지 차트에 반영시키기<a class="headerlink" href="#id6" title="제목 주소">¶</a></h2>
 <ol class="arabic simple">
 <li>문서를 참고하여 대표차트(도넛차트)의 changeCheckedLegends 이벤트를 구독하기.</li>
 </ol>
