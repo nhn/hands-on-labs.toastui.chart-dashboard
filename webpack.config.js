@@ -7,12 +7,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = (env, options = {}) => {
   const config = {
     entry: {
-      app: ['babel-polyfill', './src/index.js']
+      app: ['babel-polyfill', './chart.js']
     },
     output: {
       filename: '[name].bundle.js',
-      libraryTarget: 'umd',
-      path: path.resolve(__dirname, 'dist')
+      libraryTarget: 'umd'
     },
     module: {
       rules: [
@@ -48,7 +47,7 @@ module.exports = (env, options = {}) => {
     config.plugins = [
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
-          template: './src/index.html'
+          template: './index.html'
       })
     ];
 

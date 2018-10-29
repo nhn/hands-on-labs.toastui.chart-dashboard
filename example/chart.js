@@ -1,5 +1,5 @@
 import './index.html';
-import '../node_modules/tui-chart/dist/tui-chart.css';
+import './node_modules/tui-chart/dist/tui-chart.css';
 import tuiChart from 'tui-chart';
 
 

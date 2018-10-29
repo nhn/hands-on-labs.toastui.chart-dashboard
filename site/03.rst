@@ -5,7 +5,7 @@
 HTML 파일 작성
 =====================
 
-:code:`src/index.html` 을 열어서 body에 내용을 추가합니다.
+:code:`index.html` 을 열어서 body에 내용을 추가합니다.
 
 .. code-block:: html
 
@@ -18,12 +18,12 @@ HTML 파일 작성
 Javascrit 파일 작성
 =====================
 
-:code:`src/index.js` 을 열어서 tui-chart 모듈과 css를 import 합니다.
+:code:`chart.js` 을 열어서 tui-chart 모듈과 css를 import 합니다.
 
 .. code-block:: javascript
 
     ...
-    import '../node_modules/tui-chart/dist/tui-chart.css';
+    import './node_modules/tui-chart/dist/tui-chart.css';
     import tuiChart from 'tui-chart';
 
 
