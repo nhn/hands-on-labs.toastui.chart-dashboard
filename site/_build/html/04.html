@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. 대시보드에 도넛 차트 추가하기 &mdash; TOAST UI Chart! Create Dashboard 1.0 documentation</title>
+  <title>4. 도넛 차트에 추가 옵션 적용해보기 &mdash; TOAST UI Chart! Create Dashboard 1.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="색인" href="genindex.html" />
     <link rel="search" title="검색" href="search.html" />
-    <link rel="next" title="5. 도넛 차트에 추가 옵션 적용해보기" href="05.html" />
-    <link rel="prev" title="3. 빈 페이지에 차트 사용을 위한 환경 만들기" href="03.html" /> 
+    <link rel="next" title="5. 바 차트 생성하기" href="05.html" />
+    <link rel="prev" title="3. 도넛 차트 생성하기" href="03.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -77,22 +77,19 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02.html">2. 쉬운 환경 설정</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03.html">3. 빈 페이지에 차트 사용을 위한 환경 만들기</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 대시보드에 도넛 차트 추가하기</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">4.1. 도넛 차트 추가를 위한 문서 확인하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#raw-data">4.2. 도넛 차트 추가를 위한 raw data 가공하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">4.3. 도넛 차트 추가를 위한 기본 옵션 만들기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#html">4.4. html에 도넛 차트를 그리기 위한 공간 만들기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">4.5. 도넛 차트의 인스턴스 만들기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2. TOAST UI Chart 설치 및 서버 실행</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3. 도넛 차트 생성하기</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 도넛 차트에 추가 옵션 적용해보기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#series-showlabel">4.1. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">series.showLabel</span></code> 옵션 적용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chart-format">4.2. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">chart.format</span></code> 옵션 적용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#series-showlegend-series-labelalign">4.3. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">series.showLegend</span></code>, <code class="code docutils literal notranslate"><span class="pre">series.labelAlign</span></code> 옵션 적용하기</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="05.html">5. 도넛 차트에 추가 옵션 적용해보기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06.html">6. 대시보드에 바 차트 추가하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07.html">7. 바 차트에 추가 옵션 적용해보기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08.html">8. 라인-컬럼 콤보차트 추가하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09.html">9. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10.html">10. 정리</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">5. 바 차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">6. 바 차트에 추가 옵션 적용해보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">7. 라인-컬럼 콤보차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08.html">8. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09.html">9. 정리</a></li>
 </ul>
 
             
@@ -138,7 +135,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>4. 대시보드에 도넛 차트 추가하기</li>
+      <li>4. 도넛 차트에 추가 옵션 적용해보기</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -156,73 +153,61 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>4. 대시보드에 도넛 차트 추가하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
-<div class="section" id="id2">
-<h2>4.1. 도넛 차트 추가를 위한 문서 확인하기<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
-<p>차트를 사용하기 전에 공식 깃헙의 위키 문서를 참고합니다.</p>
+<h1>4. 도넛 차트에 추가 옵션 적용해보기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<div class="section" id="series-showlabel">
+<h2>4.1. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">series.showLabel</span></code> 옵션 적용하기<a class="headerlink" href="#series-showlabel" title="제목 주소">¶</a></h2>
+<p>우선 아래의 wiki 문서를 확인하여 <code class="code docutils literal notranslate"><span class="pre">series.showLabel</span></code> 옵션 적용 방법을 알아 봅니다.</p>
 <ul class="simple">
-<li>차트의 일반적인 기능을 소개한 문서
-<a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-chart.md">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-chart.md</a></li>
-<li>도넛 차트를 만들기 위한 문서
-<a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#creating-a-donut-chart">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#creating-a-donut-chart</a></li>
+<li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-series.md#showing-label-on-series-area">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-series.md#showing-label-on-series-area</a></li>
 </ul>
-</div>
-<div class="section" id="raw-data">
-<h2>4.2. 도넛 차트 추가를 위한 raw data 가공하기<a class="headerlink" href="#raw-data" title="제목 주소">¶</a></h2>
-<p>대시보드를 만들기 위해 미리 준비해 둔 혈액형별 헌혈현황 데이터를 선언합니다.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">donutChartData</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="mi">234196</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="mi">292124</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="mi">230728</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;AB&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="mi">98152</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
+<p>문서에서 확인한 정보를 바탕으로 <code class="code docutils literal notranslate"><span class="pre">series.showLabel</span></code> 옵션을 적용하여 도넛 차트 내에 수치를 표현합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="p">...</span>
+<span class="kr">const</span> <span class="nx">donutChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">series</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">showLabel</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>4.3. 도넛 차트 추가를 위한 기본 옵션 만들기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
-<p>차트의 크기 및 제목과 문서에서 확인한 <code class="code docutils literal notranslate"><span class="pre">series.radiusRange</span></code> 옵션을 반영하여 도넛 차트의 기본 옵션을 만듭니다.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">donutChartOptions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">width</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
-        <span class="nx">height</span><span class="o">:</span> <span class="mi">700</span><span class="p">,</span>
-        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;혈액형별 수혈 현황&#39;</span>
-    <span class="p">},</span>
+<div class="section" id="chart-format">
+<h2>4.2. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">chart.format</span></code> 옵션 적용하기<a class="headerlink" href="#chart-format" title="제목 주소">¶</a></h2>
+<p><code class="code docutils literal notranslate"><span class="pre">series.showLabel</span></code> 옵션을 적용하여 나타난 값이 number 포맷으로 나오지 않아서 어색한 부분을 확인할 수 있습니다.
+앞서 살펴봤던 차트의 일반적인 기능을 소개하는 문서에서 값을 포맷팅 하는 부분을 찾아 아래처럼 적용하여 숫자 형식으로 포맷팅 합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="kr">const</span> <span class="nx">donutChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;1,000&#39;</span>
+  <span class="p">}</span>
+  <span class="p">...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="series-showlegend-series-labelalign">
+<h2>4.3. 도넛 차트에 <code class="code docutils literal notranslate"><span class="pre">series.showLegend</span></code>, <code class="code docutils literal notranslate"><span class="pre">series.labelAlign</span></code> 옵션 적용하기<a class="headerlink" href="#series-showlegend-series-labelalign" title="제목 주소">¶</a></h2>
+<p>아래의 wiki 문서를 확인하여 <code class="code docutils literal notranslate"><span class="pre">series.showLegend</span></code> 및 <code class="code docutils literal notranslate"><span class="pre">series.labelAlign</span></code> 옵션 적용 방법을 알아 봅니다.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph</a></li>
+</ul>
+<p>미리 적용해 놓은 옵션 위에 문서에서 확인한 옵션을 추가로 적용합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="c1">//...</span>
+<span class="kr">const</span> <span class="nx">donutChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">...</span>
     <span class="nx">series</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">radiusRange</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;40%&#39;</span><span class="p">,</span> <span class="s1">&#39;100%&#39;</span><span class="p">]</span>
+      <span class="nx">radiusRange</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;40%&#39;</span><span class="p">,</span> <span class="s1">&#39;100%&#39;</span><span class="p">],</span>
+      <span class="nx">showLabel</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nx">showLegend</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nx">labelAlign</span><span class="o">:</span> <span class="s1">&#39;outer&#39;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="html">
-<h2>4.4. html에 도넛 차트를 그리기 위한 공간 만들기<a class="headerlink" href="#html" title="제목 주소">¶</a></h2>
-<p>html 문서에 실제로 도넛 차트가 그려질 영역을 만듭니다.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>...
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;donut-chart&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id4">
-<h2>4.5. 도넛 차트의 인스턴스 만들기<a class="headerlink" href="#id4" title="제목 주소">¶</a></h2>
-<p>미리 만들어둔 <code class="code docutils literal notranslate"><span class="pre">donutChartData</span></code> 와 <code class="code docutils literal notranslate"><span class="pre">donutChartOptions</span></code> 을 사용해 아래처럼 <code class="code docutils literal notranslate"><span class="pre">donutChart</span></code> 인스턴스를 생성하여 차트를 만듭니다.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">donutChart</span> <span class="o">=</span> <span class="nx">tuiChart</span><span class="p">.</span><span class="nx">pieChart</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;donut-chart&#39;</span><span class="p">),</span> <span class="nx">donutChartData</span><span class="p">,</span> <span class="nx">donutChartOptions</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -236,10 +221,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="05.html" class="btn btn-neutral float-right" title="5. 도넛 차트에 추가 옵션 적용해보기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="05.html" class="btn btn-neutral float-right" title="5. 바 차트 생성하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="03.html" class="btn btn-neutral" title="3. 빈 페이지에 차트 사용을 위한 환경 만들기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="03.html" class="btn btn-neutral" title="3. 도넛 차트 생성하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

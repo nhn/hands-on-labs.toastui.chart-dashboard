@@ -1,11 +1,6 @@
-import './index.html';
-import './node_modules/tui-chart/dist/tui-chart.css';
+import 'tui-chart/dist/tui-chart.css';
 import tuiChart from 'tui-chart';
 
-
-/**
- * Donut Chart
- */
 const donutChartData = {
   series: [
     {
@@ -27,12 +22,11 @@ const donutChartData = {
   ]
 };
 
-
 const donutChartOptions = {
   chart: {
     width: 400,
     height: 400,
-    title: '혈액형별 범례',
+    title: '혈액형별 수혈 현황',
     format: '1,000'
   },
   series: {
@@ -44,15 +38,11 @@ const donutChartOptions = {
   legend: {
     visible: true,
     align: 'top'
-  },
+  }
 };
 
 const donutChart = tuiChart.pieChart(document.getElementById('donut-chart'), donutChartData, donutChartOptions);
 
-
-/**
- * Bar Chart
- */
 const barChartData = {
   categories: ['O', 'A', 'B', 'AB'],
   series: [
@@ -75,8 +65,7 @@ const barChartOptions = {
     format: '1,000'
   },
   yAxis: {
-    title: '혈액형',
-    min: 0
+    title: '혈액형'
   },
   xAxis: {
     title: '수혈자',
@@ -89,12 +78,8 @@ const barChartOptions = {
 
 const barChart = tuiChart.barChart(document.getElementById('bar-chart'), barChartData, barChartOptions);
 
-
-/**
- * Combo Chart
- */
 const lineColumnData = {
-  categories: ['남자', '여자' , '모두'],
+  categories: ['남자', '여자', '모두'],
   series: {
     column: [
       {
@@ -112,7 +97,7 @@ const lineColumnData = {
       {
         name: 'AB',
         data: [69444, 28708, 98152]
-      },
+      }
     ],
     line: [
       {
@@ -123,10 +108,9 @@ const lineColumnData = {
   }
 };
 
-
 const lineColumnOptions = {
   chart: {
-    width: 1000,
+    width: 700,
     height: 500,
     title: '성별로 그룹화한 및 평균값 계산',
     format: '1,000'
@@ -139,12 +123,10 @@ const lineColumnOptions = {
   },
   legend: {
     visible: false
-  },
+  }
 };
 
-
 const lineColumnChart = tuiChart.comboChart(document.getElementById('line-column'), lineColumnData, lineColumnOptions);
-
 
 donutChart.on('changeCheckedLegends', info => {
   const checkedInfo = info[donutChart.chartType];
@@ -156,60 +138,54 @@ donutChart.on('changeCheckedLegends', info => {
   lineColumnChart.setData(reMakeDataForLineColumnChart(lineColumnData, checkedInfo));
 });
 
-
-// DATA 가공 함수 구현
-
 // 바 차트 가공
-function reMakeDataForBarChart(barChartData, checkedInfo) {
-  const barChartSeriesData = barChartData.series;
-  const newBarChartSeriesData = barChartSeriesData.map((seriesItem, idx) => ({
+function reMakeDataForBarChart(originalData, checkedInfo) {
+  const barChartSeriesData = originalData.series;
+  const newBarChartSeriesData = barChartSeriesData.map(seriesItem => ({
     name: seriesItem.name,
     data: Array.from(seriesItem.data).filter((value, valueIdx) => checkedInfo[valueIdx])
   }));
 
   return {
-    categories: Array.from(barChartData.categories).filter((value, valueIdx) => checkedInfo[valueIdx]),
-    series: newBarChartSeriesData,
+    categories: Array.from(originalData.categories).filter((value, valueIdx) => checkedInfo[valueIdx]),
+    series: newBarChartSeriesData
   };
 }
 
-// 라인 컬럼 차트 가공
-function reMakeDataForLineColumnChart(lineColumnData, checkedInfo) {
-  const comboChartSeriesData = lineColumnData.series;
+// 라인-컬럼 차트 가공
+function reMakeDataForLineColumnChart(originalData, checkedInfo) {
+  const comboChartSeriesData = originalData.series;
 
   return {
-      categories: lineColumnData.categories,
-      series: {
-        column: reMakeDataForColumnChart(comboChartSeriesData['column'], checkedInfo),
-        line: reMakeDataForLineChart(comboChartSeriesData['line'], comboChartSeriesData['column'], checkedInfo)
-      }
+    categories: originalData.categories,
+    series: {
+      column: reMakeDataForColumnChart(comboChartSeriesData.column, checkedInfo),
+      line: reMakeDataForLineChart(comboChartSeriesData.line, comboChartSeriesData.column, checkedInfo)
+    }
   };
 }
 
-
 // 컬럼차트 가공
-function reMakeDataForColumnChart(columnChartSeriesData, checkedInfo) {
-  return columnChartSeriesData.map((seriesItem, idx) => (
+function reMakeDataForColumnChart(originalData, checkedInfo) {
+  return originalData.map((seriesItem, idx) => (
     Object.assign({}, seriesItem, {visible: checkedInfo[idx]})
   ));
 }
 
 // 라인차트 가공
 function reMakeDataForLineChart(lineChartSeriesData, columnChartSeriesData, checkedInfo) {
-  const makeTotalAverage = (columnChartSeriesData, checkedInfo) => {
+  const makeTotalAverage = columnChartSeriesData => {
     return columnChartSeriesData.reduce((accumulator, seriesItem, idx) => {
       if (checkedInfo[idx]) {
-        accumulator.forEach((accValue, accIdx) => accumulator[accIdx] += seriesItem.data[accIdx]);
+        accumulator.forEach(function(accValue, accIdx) accumulator[accIdx] += seriesItem.data[accIdx]);
       }
 
       return accumulator;
     }, [0, 0, 0]).map(totalValue => totalValue / (checkedInfo.filter(checkInfo => checkInfo).length));
   };
 
-  return lineChartSeriesData.map((seriesItem, idx) => ({
+  return lineChartSeriesData.map(seriesItem => ({
     name: seriesItem.name,
-    data: makeTotalAverage(columnChartSeriesData, checkedInfo)
+    data: makeTotalAverage(columnChartSeriesData)
   }));
 }
-
-

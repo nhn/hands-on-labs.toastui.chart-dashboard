@@ -1,23 +1,39 @@
 ######################
-쉬운 환경 설정
+TOAST UI Chart 설치 및 서버 실행
 ######################
 
-깃헙 클론
+프로젝트 설치
 =====================
 
-먼저 핸즈온랩을 위해 기본 환경이 미리 준비된 소스를 받습니다.
+1. 터미널을 열어 프로젝트를 클론 받습니다.
 
 .. code-block:: bash
 
   $ git clone https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard
 
+2. 아래와 같이 프로젝트 폴더로 이동한 후,  npm으로 튜토리얼 진행에 필요한 개발 환경을 설치합니다.
+
+.. code-block:: bash
+
+  cd hands-on-labs.toastui.chart-dashboard
+  npm install
 
 TOAST UI Chart 설치
 =====================
 
-TOAST UI Chart는 NPM으로 제공됩니다. 아래와 같이 설치합니다.
+npm을 통해 TOAST UI를 디펜던시로 설치합니다.
 
 .. code-block:: bash
 
-  npm install --save tui-chart
+  npm install tui-chart
+
+
+개발 서버 실행
+=====================
+
+미리 설정된 개발 서버를 실행합니다. 서버 실행이 완료되면 브라우저로 http://localhost:8080/ 에 접속합니다.
+
+.. code-block:: bash
+
+   npm run server
 

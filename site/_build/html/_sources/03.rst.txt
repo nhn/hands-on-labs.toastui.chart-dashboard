@@ -1,43 +1,103 @@
 ###################
-빈 페이지에 차트 사용을 위한 환경 만들기
+도넛 차트 생성하기
 ###################
 
-HTML 파일 작성
+Javascript 파일 작성
 =====================
 
-:code:`index.html` 을 열어서 body에 내용을 추가합니다.
-
-.. code-block:: html
-
-    ...
-    <body>
-      <header>Chart DashBoard</header>
-    </body>
-    ...
-
-Javascrit 파일 작성
-=====================
-
-:code:`chart.js` 을 열어서 tui-chart 모듈과 css를 import 합니다.
+**src/index.js** 파일을 열어 tui-chart 모듈과 css를 import 합니다.
 
 .. code-block:: javascript
 
-    ...
-    import './node_modules/tui-chart/dist/tui-chart.css';
-    import tuiChart from 'tui-chart';
+  // src/index.js
 
+  import 'tui-chart/dist/tui-chart.css';
+  import tuiChart from 'tui-chart';
 
-개발 서버 구동
+도넛 차트 생성을 위한 문서 확인하기
+=====================
+차트를 사용하기 전에 공식 깃헙의 위키 문서를 참고합니다.
+
+- 차트의 일반적인 기능을 소개한 문서
+  https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-chart.md
+
+- 도넛 차트를 만들기 위한 문서
+  https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#creating-a-donut-chart
+
+도넛 차트 생성을 위한 raw data 가공하기
 =====================
 
-.. code-block:: bash
+대시보드를 만들기 위해 미리 준비해 둔 혈액형별 헌혈현황 데이터를 선언합니다.
 
-   npm run server
+.. code-block:: javascript
+
+  // src/index.js
+
+  const donutChartData = {
+    series: [
+      {
+        name: 'O',
+        data: 234196
+      },
+      {
+        name: 'A',
+        data: 292124
+      },
+      {
+        name: 'B',
+        data: 230728
+      },
+      {
+        name: 'AB',
+        data: 98152
+      }
+    ]
+  };
 
 
-이제 결과를 확인해 가며 구현할 수 있습니다.
+도넛 차트 생성을 위한 기본 옵션 만들기
+=====================
+
+차트의 크기 및 제목과 문서에서 확인한 :code:`series.radiusRange` 옵션을 반영하여 도넛 차트의 기본 옵션을 만듭니다.
+
+.. code-block:: javascript
+
+  // src/index.js
+
+  const donutChartOptions = {
+    chart: {
+      width: 400,
+      height: 400,
+      title: '혈액형별 수혈 현황'
+    },
+    series: {
+      radiusRange: ['40%', '100%']
+    }
+  };
+
+html에 도넛 차트를 그리기 위한 공간 만들기
+=====================
+
+html 문서에 실제로 도넛 차트가 그려질 영역을 만듭니다.
+
+.. code-block:: html
+
+  // src/index.html
+
+  ...
+  <body>
+    ...
+    <div id="donut-chart"></div>
+  </body>
 
 
+도넛 차트의 인스턴스 만들기
+=====================
 
+미리 만들어둔 :code:`donutChartData` 와 :code:`donutChartOptions` 을 사용해 아래처럼 :code:`donutChart` 인스턴스를 생성하여 차트를 만듭니다.
 
+.. code-block:: javascript
 
+  // src/index.js
+
+  const donutChart = tuiChart.pieChart(document.getElementById('donut-chart'), donutChartData, donutChartOptions);

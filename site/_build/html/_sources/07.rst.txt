@@ -1,50 +1,91 @@
 ###################
-바 차트에 추가 옵션 적용해보기
+라인-컬럼 콤보차트 생성하기
 ###################
 
-바 차트의 적용할 축 타이틀 옵션 (:code:`yAxis.title, xAxis.title`) 알아보기
+라인-컬럼 차트를 사용하기 전에 깃헙의 공식 위키 문서를 참고합니다.
+
+- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-column-line-combo.md
+
+
+라인-컬럼 차트 생성을 위한 raw data 가공하기
 =====================
 
-옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.
-
-- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md
-
-바 차트의 x, y축에 타이틀 옵션 (:code:`yAxis.title, xAxis.title`) 적용하기
-=====================
-
-아래와 같이 미리 작성된 옵션에 추가하여 x, y축에 타이틀을 표기해 봅시다.
+라인-컬럼 차트는 차트 2개를 사용하는 **콤보 차트** 이기 때문에 :code:`lineColumnData.series` 의 형태가 배열이 아닌 객체로 차트 2개에 대한 데이터를 전부 갖고 있습니다.
 
 .. code-block:: javascript
 
-  const barChartOptions = {
-    ...
+  // src/index.js
+
+  const lineColumnData = {
+    categories: ['남자', '여자' , '모두'],
+    series: {
+      column: [
+        {
+          name: 'O',
+          data: [164350, 69846, 234196]
+        },
+        {
+          name: 'A',
+          data: [207708, 84416, 292124]
+        },
+        {
+          name: 'B',
+          data: [162275, 68453, 230728]
+        },
+        {
+          name: 'AB',
+          data: [69444, 28708, 98152]
+        },
+      ],
+      line: [
+        {
+          name: 'Average',
+          data: [150944, 62855, 213800]
+        }
+      ]
+    }
+  };
+
+
+
+라인-컬럼 차트 생성을 위한 기본 옵션 만들기
+=====================
+
+앞의 **도넛 차트** 와 **바 차트** 에서 한 번씩 사용해 봤던 기본 옵션들입니다.
+
+.. code-block:: javascript
+
+  // src/index.js
+
+  const lineColumnOptions = {
+    chart: {
+      width: 1000,
+      height: 500,
+      title: '성별로 그룹화한 및 평균값 계산',
+      format: '1,000'
+    },
     yAxis: {
-        title: '혈액형'
+      title: '혈액형'
     },
     xAxis: {
-        title: '수혈자'
+      title: '수혈자',
     }
-  }
+  };
 
-
-바 차트 x, y축 레이블에 suffix 표현방법 알아보기
+html에 바 차트를 그리기 위한 공간 만들기
 =====================
 
-옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.
+.. code-block:: html
 
-- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md#setting-suffix
+  // src/index.html
 
-바 차트 x, y축 레이블에 suffix 옵션 적용하기
+  <div id="line-column"></div>
+
+라인-컬럼 차트의 인스턴스 만들기
 =====================
-
-아래와 같이 미리 작성된 옵션에 :code:`yAxis.suffix` 옵션을 추가합니다.
 
 .. code-block:: javascript
 
-  const barChartOptions = {
-        //...
-      xAxis: {
-        title: '수혈자',
-        suffix: '명'
-      }
-  };
+  // src/index.js
+
+  const lineColumnChart = tuiChart.comboChart(document.getElementById('line-column'), lineColumnData, lineColumnOptions);

@@ -7,7 +7,7 @@
   <body>
     <h1>TOAST UI Chart - DashBoard</h1>
     <div id="donut-chart"></div>
-    <div id="bar-chart"></div>
-    <div id="line-column"></div>
+    <div id="bar-chart" style="float: left"></div>
+    <div id="line-column" style="float: left"></div>
   </body>
 </html>

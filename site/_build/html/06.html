@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6. 대시보드에 바 차트 추가하기 &mdash; TOAST UI Chart! Create Dashboard 1.0 documentation</title>
+  <title>6. 바 차트에 추가 옵션 적용해보기 &mdash; TOAST UI Chart! Create Dashboard 1.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="색인" href="genindex.html" />
     <link rel="search" title="검색" href="search.html" />
-    <link rel="next" title="7. 바 차트에 추가 옵션 적용해보기" href="07.html" />
-    <link rel="prev" title="5. 도넛 차트에 추가 옵션 적용해보기" href="05.html" /> 
+    <link rel="next" title="7. 라인-컬럼 콤보차트 생성하기" href="07.html" />
+    <link rel="prev" title="5. 바 차트 생성하기" href="05.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -77,22 +77,18 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02.html">2. 쉬운 환경 설정</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03.html">3. 빈 페이지에 차트 사용을 위한 환경 만들기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04.html">4. 대시보드에 도넛 차트 추가하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05.html">5. 도넛 차트에 추가 옵션 적용해보기</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">6. 대시보드에 바 차트 추가하기</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">6.1. 바 차트 추가를 위한 문서 확인하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#raw-data">6.2. 바 차트 추가를 위한 raw data 가공하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">6.3. 바 차트 추가를 위한 기본 옵션 만들기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#html">6.4. html에 바 차트를 그리기 위한 공간 만들기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">6.5. 바 차트의 인스턴스 만들기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2. TOAST UI Chart 설치 및 서버 실행</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3. 도넛 차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">4. 도넛 차트에 추가 옵션 적용해보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">5. 바 차트 생성하기</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. 바 차트에 추가 옵션 적용해보기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#x-y-yaxis-title-xaxis-title">6.1. 바 차트의 x, y축에 타이틀 옵션 (<code class="code docutils literal notranslate"><span class="pre">yAxis.title,</span> <span class="pre">xAxis.title</span></code>) 적용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#x-y-suffix">6.2. 바 차트 x, y축 레이블에 suffix 옵션 적용하기</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="07.html">7. 바 차트에 추가 옵션 적용해보기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08.html">8. 라인-컬럼 콤보차트 추가하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09.html">9. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10.html">10. 정리</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">7. 라인-컬럼 콤보차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08.html">8. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09.html">9. 정리</a></li>
 </ul>
 
             
@@ -138,7 +134,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>6. 대시보드에 바 차트 추가하기</li>
+      <li>6. 바 차트에 추가 옵션 적용해보기</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -156,46 +152,44 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>6. 대시보드에 바 차트 추가하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
-<div class="section" id="id2">
-<h2>6.1. 바 차트 추가를 위한 문서 확인하기<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
-<p>차트를 사용하기 전에 공식 깃헙의 위키 문서를 참고합니다.</p>
+<h1>6. 바 차트에 추가 옵션 적용해보기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<div class="section" id="x-y-yaxis-title-xaxis-title">
+<h2>6.1. 바 차트의 x, y축에 타이틀 옵션 (<code class="code docutils literal notranslate"><span class="pre">yAxis.title,</span> <span class="pre">xAxis.title</span></code>) 적용하기<a class="headerlink" href="#x-y-yaxis-title-xaxis-title" title="제목 주소">¶</a></h2>
+<p>옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-bar,column.md">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-bar,column.md</a></li>
+<li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md</a></li>
 </ul>
+<p>아래와 같이 미리 작성된 옵션 위에 추가하여 x, y축에 타이틀을 표기해 봅시다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="kr">const</span> <span class="nx">barChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;혈액형&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;수혈자&#39;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="raw-data">
-<h2>6.2. 바 차트 추가를 위한 raw data 가공하기<a class="headerlink" href="#raw-data" title="제목 주소">¶</a></h2>
-<p>미리 준비해 둔 혈액형별 헌혈현황 데이터를 이용하여 차트를 그리기 위한 데이터를 만듭니다.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">barChartData</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;AB&#39;</span><span class="p">],</span>
-    <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;남자&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">164350</span><span class="p">,</span> <span class="mi">207708</span><span class="p">,</span> <span class="mi">162275</span><span class="p">,</span> <span class="mi">69444</span><span class="p">]</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;여자&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">69846</span><span class="p">,</span> <span class="mi">84416</span><span class="p">,</span> <span class="mi">68453</span><span class="p">,</span> <span class="mi">28708</span><span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
+</div>
+<div class="section" id="x-y-suffix">
+<h2>6.2. 바 차트 x, y축 레이블에 suffix 옵션 적용하기<a class="headerlink" href="#x-y-suffix" title="제목 주소">¶</a></h2>
+<p>옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md#setting-suffix">https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md#setting-suffix</a></li>
+</ul>
+<p>아래와 같이 앞에서 미리 작성된 옵션 위에 <code class="code docutils literal notranslate"><span class="pre">yAxis.suffix</span></code> 옵션을 추가합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="kr">const</span> <span class="nx">barChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;수혈자&#39;</span><span class="p">,</span>
+    <span class="nx">suffix</span><span class="o">:</span> <span class="s1">&#39;명&#39;</span>
+  <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>6.3. 바 차트 추가를 위한 기본 옵션 만들기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
-<p>앞서서 살펴본 옵션과 바 차트를 위해 새로 확인한</p>
-</div>
-<div class="section" id="html">
-<h2>6.4. html에 바 차트를 그리기 위한 공간 만들기<a class="headerlink" href="#html" title="제목 주소">¶</a></h2>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bar-chart&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id4">
-<h2>6.5. 바 차트의 인스턴스 만들기<a class="headerlink" href="#id4" title="제목 주소">¶</a></h2>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">barChart</span> <span class="o">=</span> <span class="nx">tuiChart</span><span class="p">.</span><span class="nx">barChart</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;bar-chart&#39;</span><span class="p">),</span> <span class="nx">barChartData</span><span class="p">,</span> <span class="nx">barChartOptions</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -209,10 +203,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="07.html" class="btn btn-neutral float-right" title="7. 바 차트에 추가 옵션 적용해보기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="07.html" class="btn btn-neutral float-right" title="7. 라인-컬럼 콤보차트 생성하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="05.html" class="btn btn-neutral" title="5. 도넛 차트에 추가 옵션 적용해보기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="05.html" class="btn btn-neutral" title="5. 바 차트 생성하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

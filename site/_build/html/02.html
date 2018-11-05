@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. 쉬운 환경 설정 &mdash; TOAST UI Chart! Create Dashboard 1.0 documentation</title>
+  <title>2. TOAST UI Chart 설치 및 서버 실행 &mdash; TOAST UI Chart! Create Dashboard 1.0 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="색인" href="genindex.html" />
     <link rel="search" title="검색" href="search.html" />
-    <link rel="next" title="3. 빈 페이지에 차트 사용을 위한 환경 만들기" href="03.html" />
+    <link rel="next" title="3. 도넛 차트 생성하기" href="03.html" />
     <link rel="prev" title="1. 개요" href="01.html" /> 
 
   
@@ -77,19 +77,19 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. 쉬운 환경 설정</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2.1. 깃헙 클론</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#toast-ui-chart">2.2. TOAST UI Chart 설치</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. TOAST UI Chart 설치 및 서버 실행</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 프로젝트 설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. TOAST UI Chart 설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.3. 개발 서버 실행</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="03.html">3. 빈 페이지에 차트 사용을 위한 환경 만들기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04.html">4. 대시보드에 도넛 차트 추가하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05.html">5. 도넛 차트에 추가 옵션 적용해보기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06.html">6. 대시보드에 바 차트 추가하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07.html">7. 바 차트에 추가 옵션 적용해보기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08.html">8. 라인-컬럼 콤보차트 추가하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09.html">9. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10.html">10. 정리</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3. 도넛 차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">4. 도넛 차트에 추가 옵션 적용해보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">5. 바 차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">6. 바 차트에 추가 옵션 적용해보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">7. 라인-컬럼 콤보차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08.html">8. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09.html">9. 정리</a></li>
 </ul>
 
             
@@ -135,7 +135,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>2. 쉬운 환경 설정</li>
+      <li>2. TOAST UI Chart 설치 및 서버 실행</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -152,19 +152,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
-<h1>2. 쉬운 환경 설정<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
-<div class="section" id="id2">
-<h2>2.1. 깃헙 클론<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
-<p>먼저 핸즈온랩을 위해 기본 환경이 미리 준비된 소스를 받습니다.</p>
+  <div class="section" id="toast-ui-chart">
+<h1>2. TOAST UI Chart 설치 및 서버 실행<a class="headerlink" href="#toast-ui-chart" title="제목 주소">¶</a></h1>
+<div class="section" id="id1">
+<h2>2.1. 프로젝트 설치<a class="headerlink" href="#id1" title="제목 주소">¶</a></h2>
+<ol class="arabic simple">
+<li>터미널을 열어 프로젝트를 클론 받습니다.</li>
+</ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard
 </pre></div>
 </div>
+<ol class="arabic simple" start="2">
+<li>아래와 같이 프로젝트 폴더로 이동한 후,  npm으로 튜토리얼 진행에 필요한 개발 환경을 설치합니다.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> hands-on-labs.toastui.chart-dashboard
+npm install
+</pre></div>
 </div>
-<div class="section" id="toast-ui-chart">
-<h2>2.2. TOAST UI Chart 설치<a class="headerlink" href="#toast-ui-chart" title="제목 주소">¶</a></h2>
-<p>TOAST UI Chart는 NPM으로 제공됩니다. 아래와 같이 설치합니다.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install --save tui-chart
+</div>
+<div class="section" id="id2">
+<h2>2.2. TOAST UI Chart 설치<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<p>npm을 통해 TOAST UI를 디펜던시로 설치합니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install tui-chart
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2.3. 개발 서버 실행<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<p>미리 설정된 개발 서버를 실행합니다. 서버 실행이 완료되면 브라우저로 <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> 에 접속합니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm run server
 </pre></div>
 </div>
 </div>
@@ -178,7 +194,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="03.html" class="btn btn-neutral float-right" title="3. 빈 페이지에 차트 사용을 위한 환경 만들기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="03.html" class="btn btn-neutral float-right" title="3. 도넛 차트 생성하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="01.html" class="btn btn-neutral" title="1. 개요" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
