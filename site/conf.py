@@ -58,7 +58,7 @@ master_doc = 'index'
 
 # General information about the project.
 
-project = 'TOAST UI Chart! Create Dashboard'
+project = 'TOAST UI Chart Create Dashboard'
 copyright = 'NHN Entertainment'
 author = 'superlucky'
 
