@@ -13,15 +13,20 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['babel-preset-env']
+          }
         }
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          failOnError: false
+        use: {
+          loader: 'eslint-loader',
+          options: {
+              failOnError: false
+          }
         }
       },
       {
