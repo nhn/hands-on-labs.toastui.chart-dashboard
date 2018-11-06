@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -11,16 +10,12 @@ module.exports = {
   module: {
     rules: [
       {
-          test: /\.js$/,
-          loader: 'es3ify-loader'
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-              presets: [['babel-preset-env', {loose: true}]]
+              presets: ['babel-preset-env']
           }
         }
       },
@@ -50,12 +45,5 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin()
   ],
-  optimization: {
-    minimizer: [new UglifyJsPlugin({
-      uglifyOptions: {
-        ie8: true
-      }
-    })]
-  },
   devtool: 'source-map'
 };
