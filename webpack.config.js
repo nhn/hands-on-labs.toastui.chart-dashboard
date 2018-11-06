@@ -11,6 +11,10 @@ module.exports = {
   module: {
     rules: [
       {
+          test: /\.js$/,
+          loader: 'es3ify-loader'
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -36,10 +40,6 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader'
         ]
-      },
-      {
-          test: /\.js$/,
-          loader: 'es3ify-loader'
       }
     ]
   },
