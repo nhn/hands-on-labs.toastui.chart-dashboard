@@ -11,6 +11,7 @@ module.exports = {
     },
     rules: {
         "indent": ["error", 2],
-        "require-jsdoc": 0
+        "require-jsdoc": 0,
+        'linebreak-style': 0
     }
 };
