@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const es3ifyPlugin = require('es3ify-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
@@ -37,6 +36,10 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader'
         ]
+      },
+      {
+          test: /\.js$/,
+          loader: 'es3ify-loader'
       }
     ]
   },
@@ -45,8 +48,7 @@ module.exports = {
       template: './src/index.html'
     }),
     new CleanWebpackPlugin(['dist']),
-    new MiniCssExtractPlugin(),
-    new es3ifyPlugin()
+    new MiniCssExtractPlugin()
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin({
