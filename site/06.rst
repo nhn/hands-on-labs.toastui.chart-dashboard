@@ -34,7 +34,7 @@
 
 - https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-axes.md#setting-suffix
 
-아래와 같이 앞에서 미리 작성된 옵션 위에 :code:`yAxis.suffix` 옵션을 추가합니다.
+아래와 같이 앞에서 미리 작성된 옵션 위에 :code:`xAxis.suffix` 옵션을 추가합니다.
 
 .. code-block:: javascript
 

@@ -179,5 +179,7 @@
 완성된 예제 확인하기
 =====================
 
-미리 완성된 예제는 `github 저장소의 example 디렉터리 <https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard/tree/master/example>`_  에서 확인할 수 있습니다.
+아래의 이미지는 완성된 모습입니다. 미리 완성된 예제는 `github 저장소의 example 디렉터리 <https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard/tree/master/example>`_  에서 확인할 수 있습니다.
 
+
+.. image:: _static/step09.png

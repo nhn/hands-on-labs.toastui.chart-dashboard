@@ -21,6 +21,7 @@
   const donutChartOptions = {
     ...
     series: {
+      ...
       showLabel: true
     }
   };
@@ -64,8 +65,7 @@
   const donutChartOptions = {
       ...
       series: {
-        radiusRange: ['40%', '100%'],
-        showLabel: true,
+        ...
         showLegend: true,
         labelAlign: 'outer'
       }

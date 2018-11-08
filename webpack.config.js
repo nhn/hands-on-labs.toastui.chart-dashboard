@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    app: ['babel-polyfill', './src/index.js']
+    app: ['./src/index.js']
   },
   module: {
     rules: [
@@ -13,19 +13,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-              presets: ['babel-preset-env']
-          }
-        }
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
           loader: 'eslint-loader',
           options: {
-            failOnError: false
+            emitWarning: true
           }
         }
       },
