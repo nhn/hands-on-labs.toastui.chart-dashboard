@@ -35,5 +35,5 @@ npm을 통해 TOAST UI를 디펜던시로 설치합니다.
 
 .. code-block:: bash
 
-   npm run server
+   npm run serve
 
