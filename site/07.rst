@@ -4,7 +4,7 @@
 
 라인-컬럼 차트를 사용하기 전에 깃헙의 공식 위키 문서를 참고합니다.
 
-- https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-column-line-combo.md
+- https://github.com/nhnent/tui.chart/blob/master/docs/wiki/chart-types-column-line-combo.md
 
 
 라인-컬럼 차트 생성을 위한 raw data 가공하기

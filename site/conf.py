@@ -58,8 +58,8 @@ master_doc = 'index'
 
 # General information about the project.
 
-project = 'TOAST UI Chart Create Dashboard'
-copyright = 'NHN Entertainment'
+project = 'TOAST UI Chart Dashboard'
+copyright = 'NHN Corp. All rights reserved.'
 author = 'superlucky'
 
 # The version info for the project you're documenting, acts as replacement for

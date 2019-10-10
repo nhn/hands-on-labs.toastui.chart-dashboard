@@ -19,10 +19,10 @@ Javascript 파일 작성
 차트를 사용하기 전에 공식 깃헙의 위키 문서를 참고합니다.
 
 - 차트의 일반적인 기능을 소개한 문서
-  https://github.com/nhnent/tui.chart/blob/production/docs/wiki/features-chart.md
+  https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-chart.md
 
 - 도넛 차트를 만들기 위한 문서
-  https://github.com/nhnent/tui.chart/blob/production/docs/wiki/chart-types-pie.md#creating-a-donut-chart
+  https://github.com/nhnent/tui.chart/blob/master/docs/wiki/chart-types-pie.md#creating-a-donut-chart
 
 도넛 차트 생성을 위한 raw data 가공하기
 =====================
