@@ -1,7 +1,7 @@
 {
   "name": "hands-on-labs.toastui.chart-dashboard",
   "version": "1.0.0",
-  "description": "NHN Forward 2018",
+  "description": "NHN Forward 2019",
   "main": "index.js",
   "scripts": {
     "serve": "webpack-dev-server"
