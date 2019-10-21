@@ -20,4 +20,9 @@ TOAST UI Chart는 다양한 종류의 차트와 여러 가지 옵션이 있습�
 소스 코드
 ======
 
-* https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard
+* |link_1|
+
+
+.. |link_1| raw:: html 
+
+  <a href="https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard" target="_blank">https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard</a>

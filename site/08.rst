@@ -12,8 +12,7 @@
 
 체크박스 옵션 적용을 위해 미리 공식 위키문서를 확인해 봅니다.
 
-- https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-legend.md
-
+- |link_1|
 
 대표 차트(도넛 차트)를 제외한 모든 차트의 범례 표시 영역을 감추기
 =====================
@@ -70,11 +69,11 @@
 
 1. changeCheckedLegends 이벤트 탐지하기
 
-- https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-legend.md#getting-checkbox-status-infomation-of-legend-when-checking-legend
+- |link_2|
 
 2. setData API를 이용해 체크된 데이터만 표시하여 다시 그리기
 
-- https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-chart.md#change-the-data-in-the-chart
+- |link_3|
 
 체크박스 변경 이벤트 리스너 만들어를 구현하여 나머지 차트에 반영시키기
 =====================
@@ -183,3 +182,16 @@
 
 
 .. image:: _static/step09.png
+
+
+.. |link_1| raw:: html 
+
+  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-legend.md" target="_blank">문서 링크</a>
+
+.. |link_2| raw:: html 
+
+  <a href="https://nhn.github.io/tui.chart/latest/ChartBase#event-changeCheckedLegends" target="_blank">문서 링크</a>
+
+.. |link_3| raw:: html 
+
+  <a href="https://nhn.github.io/tui.chart/latest/ChartBase#setData" target="_blank">문서 링크</a>

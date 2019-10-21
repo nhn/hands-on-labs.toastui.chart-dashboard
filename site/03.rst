@@ -2,7 +2,7 @@
 도넛 차트 생성하기
 ###################
 
-Javascript 파일 작성
+JavaScript 파일 작성
 =====================
 
 **src/index.js** 파일을 열어 tui-chart 모듈과 css를 import 합니다.
@@ -18,11 +18,8 @@ Javascript 파일 작성
 =====================
 차트를 사용하기 전에 공식 깃헙의 위키 문서를 참고합니다.
 
-- 차트의 일반적인 기능을 소개한 문서
-  https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-chart.md
-
-- 도넛 차트를 만들기 위한 문서
-  https://github.com/nhnent/tui.chart/blob/master/docs/wiki/chart-types-pie.md#creating-a-donut-chart
+* 차트의 일반기능: |link_1|
+* 도넛 차트 만들기: |link_2|
 
 도넛 차트 생성을 위한 raw data 가공하기
 =====================
@@ -101,3 +98,12 @@ html 문서에 실제로 도넛 차트가 그려질 영역을 만듭니다.
   // src/index.js
 
   const donutChart = tuiChart.pieChart(document.getElementById('donut-chart'), donutChartData, donutChartOptions);
+
+
+.. |link_1| raw:: html 
+
+  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-chart.md" target="_blank">문서 링크</a>
+
+.. |link_2| raw:: html 
+
+  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/chart-types-pie.md#creating-a-donut-chart" target="_blank">문서 링크</a>

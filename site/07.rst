@@ -4,7 +4,7 @@
 
 라인-컬럼 차트를 사용하기 전에 깃헙의 공식 위키 문서를 참고합니다.
 
-- https://github.com/nhnent/tui.chart/blob/master/docs/wiki/chart-types-column-line-combo.md
+- |link_1|
 
 
 라인-컬럼 차트 생성을 위한 raw data 가공하기
@@ -89,3 +89,8 @@ html에 바 차트를 그리기 위한 공간 만들기
   // src/index.js
 
   const lineColumnChart = tuiChart.comboChart(document.getElementById('line-column'), lineColumnData, lineColumnOptions);
+
+
+.. |link_1| raw:: html 
+
+  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/chart-types-column-line-combo.md" target="_blank">문서 링크</a>
