@@ -59,7 +59,7 @@
 
   const lineColumnOptions = {
     chart: {
-      width: 1000,
+      width: 400,
       height: 500,
       title: '성별로 그룹화한 및 평균값 계산',
       format: '1,000'
@@ -89,6 +89,14 @@ html에 바 차트를 그리기 위한 공간 만들기
   // src/index.js
 
   const lineColumnChart = tuiChart.comboChart(document.getElementById('line-column'), lineColumnData, lineColumnOptions);
+
+
+라인-컬럼 차트 차트 생성 결과
+=====================
+
+위 예제를 잘 따라 오셨을 경우 아래 이미지와 같은 형태의 라인-컬럼 차트가 만들어집니다.
+
+.. image:: _static/step07.png
 
 
 .. |link_1| raw:: html 

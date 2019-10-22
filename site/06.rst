@@ -30,10 +30,6 @@
 바 차트 x, y축 레이블에 suffix 옵션 적용하기
 =====================
 
-옵션을 적용하기 전에 우선 위키 문서를 확인하여 옵션 적용방법을 알아봅니다.
-
-- |link_2|
-
 아래와 같이 앞에서 미리 작성된 옵션 위에 :code:`xAxis.suffix` 옵션을 추가합니다.
 
 .. code-block:: javascript
@@ -48,6 +44,39 @@
     }
   };
 
+바 차트에 테마 적용하기
+=====================
+
+테마를 적용하기 전에 우선 위키 문서를 확인하여 적용방법을 알아봅니다.
+
+- |link_2|
+
+아래와 같이 미리 작성된 옵션 위에 추가하여 새로운 테마를 적용해봅시다.
+
+.. code-block:: javascript
+
+  // src/index.js
+
+  const theme = {
+    series: {
+      colors: ["#289399", "#295ba0"]
+    }
+  };
+
+  tui.chart.registerTheme('myTheme', theme);
+
+  const barChartOptions = {
+    ...
+    theme: 'myTheme'
+  };
+
+바 차트 생성 결과
+=====================
+
+위 예제를 잘 따라 오셨을 경우 아래 이미지와 같은 형태의 바 차트가 만들어집니다.
+
+.. image:: _static/step06.png
+
 
 .. |link_1| raw:: html 
 
@@ -55,4 +84,4 @@
 
 .. |link_2| raw:: html 
 
-  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-axes.md#setting-suffix" target="_blank">문서 링크</a>
+  <a href="https://github.com/nhn/tui.chart/blob/master/docs/wiki/theme.md#how-to-use-theme" target="_blank">문서 링크</a>

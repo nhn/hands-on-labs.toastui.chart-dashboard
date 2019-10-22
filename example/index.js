@@ -57,9 +57,16 @@ const barChartData = {
   ]
 };
 
+const theme = {
+  series: {
+    colors: ["#289399", "#295ba0"]
+  }
+};
+
+tuiChart.registerTheme("myTheme", theme);
 const barChartOptions = {
   chart: {
-    width: 700,
+    width: 400,
     height: 500,
     title: '성별 범례',
     format: '1,000'
@@ -73,7 +80,8 @@ const barChartOptions = {
   },
   legend: {
     visible: false
-  }
+  },
+  theme: "myTheme"
 };
 
 const barChart = tuiChart.barChart(document.getElementById('bar-chart'), barChartData, barChartOptions);
@@ -110,7 +118,7 @@ const lineColumnData = {
 
 const lineColumnOptions = {
   chart: {
-    width: 700,
+    width: 400,
     height: 500,
     title: '성별로 그룹화한 및 평균값 계산',
     format: '1,000'
