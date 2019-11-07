@@ -10,7 +10,7 @@
 
 .. image:: _static/step08.png
 
-체크박스 옵션 적용을 위해 미리 공식 위키문서를 확인해 봅니다.
+아래 링크를 통해 체크박스 옵션 적용에 대해 자세히 알 수 있습니다.
 
 - |link_1|
 
@@ -175,13 +175,13 @@
   }
 
 
-완성된 예제 확인하기
+결과 확인
 =====================
 
-아래의 이미지는 완성된 모습입니다. 미리 완성된 예제는 `github 저장소의 example 디렉터리 <https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard/tree/master/example>`_  에서 확인할 수 있습니다.
+아래는 완성된 모습입니다. 미리 완성된 예제는 `github 저장소의 example 디렉터리 <https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard/tree/master/example>`_  에서 확인할 수 있습니다.
 
 
-.. image:: _static/step09.png
+.. image:: _static/step09.gif
 
 
 .. |link_1| raw:: html 
