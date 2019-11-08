@@ -1,86 +1,75 @@
 ###################
-바 차트에 추가 옵션 적용해보기
+바 차트 생성하기
 ###################
 
-
-바 차트의 x, y축에 타이틀 옵션 (:code:`xAxis.title, yAxis.title`) 적용하기
-=====================
-
-아래와 같이 미리 작성된 옵션 위에 추가하여 x, y축에 타이틀을 표기해 봅시다.
-
-.. code-block:: javascript
-
-  // src/index.js
-
-  const barChartOptions = {
-    ...
-    yAxis: {
-      title: '혈액형'
-    },
-    xAxis: {
-      title: '수혈자'
-    }
-  }
-
-옵션에 대해 좀 더 궁금하다면 아래 위키 문서를 확인하세요.
+바 차트를 사용하기 전에 깃헙의 공식 위키 문서를 참고합니다.
 
 - |link_1|
 
-바 차트 x, y축 레이블에 suffix 옵션 적용하기
+
+바 차트 생성을 위한 raw data 가공하기
 =====================
 
-아래와 같이 앞에서 미리 작성된 옵션 위에 :code:`xAxis.suffix` 옵션을 추가합니다.
+미리 준비해 둔 혈액형별 헌혈현황 데이터를 이용하여 차트를 그리기 위한 데이터를 만듭니다.
+
+.. code-block:: javascript
+
+  // src/index.js
+
+  const barChartData = {
+    categories: ['O', 'A', 'B', 'AB'],
+    series: [
+      {
+        name: '남자',
+        data: [164350, 207708, 162275, 69444]
+      },
+      {
+        name: '여자',
+        data: [69846, 84416, 68453, 28708]
+      }
+    ]
+  };
+
+
+바 차트 생성을 위한 기본 옵션 만들기
+=====================
+
+바 차트를 위한 기본 옵션을 만듭니다. 앞에 설명드렸던 옵션과 모두 동일한 내용입니다.
 
 .. code-block:: javascript
 
   // src/index.js
 
   const barChartOptions = {
-    ...
-    xAxis: {
-      title: '수혈자',
-      suffix: '명'
+    chart: {
+      width: 400,
+      height: 500,
+      title: '성별 범례',
+      format: '1,000'
     }
   };
 
-바 차트에 테마 적용하기
+html에 바 차트를 그리기 위한 공간 만들기
 =====================
 
-아래와 같이 미리 작성된 옵션 위에 추가하여 새로운 테마를 적용해봅시다.
+.. code-block:: html
+
+  // src/index.html
+
+  <div id="bar-chart"></div>
+
+
+
+바 차트의 인스턴스 만들기
+=====================
 
 .. code-block:: javascript
 
   // src/index.js
 
-  const theme = {
-    series: {
-      colors: ["#289399", "#295ba0"]
-    }
-  };
-
-  tuiChart.registerTheme('myTheme', theme);
-
-  const barChartOptions = {
-    ...
-    theme: 'myTheme'
-  };
-
-테마 적용에 대해 좀 더 궁금하다면 아래 위키 문서를 확인하세요.
-
-- |link_2|
-
-결과 확인
-=====================
-
-위 예제를 잘 따라 오셨을 경우 아래 이미지와 같은 형태의 바 차트가 만들어집니다.
-
-.. image:: _static/step06.png
+  const barChart = tuiChart.barChart(document.getElementById('bar-chart'), barChartData, barChartOptions);
 
 
 .. |link_1| raw:: html 
 
-  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-axes.md" target="_blank">문서 링크</a>
-
-.. |link_2| raw:: html 
-
-  <a href="https://github.com/nhn/tui.chart/blob/master/docs/wiki/theme.md#how-to-use-theme" target="_blank">문서 링크</a>
+  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/chart-types-bar,column.md" target="_blank">문서 링크</a>

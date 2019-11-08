@@ -58,9 +58,9 @@ master_doc = 'index'
 
 # General information about the project.
 
-project = 'TOAST UI Chart로 대시보드 만들기'
+project = u'TOAST UI Chart로 대시보드 만들기'
 copyright = 'NHN Corp. All rights reserved.'
-author = 'superlucky'
+author = 'FE DEV LAB'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

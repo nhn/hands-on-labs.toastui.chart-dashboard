@@ -25,7 +25,7 @@ const donutChartData = {
 const donutChartOptions = {
   chart: {
     width: 400,
-    height: 400,
+    height: 500,
     title: '혈액형별 수혈 현황',
     format: '1,000'
   },
@@ -42,49 +42,6 @@ const donutChartOptions = {
 };
 
 const donutChart = tuiChart.pieChart(document.getElementById('donut-chart'), donutChartData, donutChartOptions);
-
-const barChartData = {
-  categories: ['O', 'A', 'B', 'AB'],
-  series: [
-    {
-      name: '남자',
-      data: [164350, 207708, 162275, 69444]
-    },
-    {
-      name: '여자',
-      data: [69846, 84416, 68453, 28708]
-    }
-  ]
-};
-
-const theme = {
-  series: {
-    colors: ["#289399", "#295ba0"]
-  }
-};
-
-tuiChart.registerTheme("myTheme", theme);
-const barChartOptions = {
-  chart: {
-    width: 400,
-    height: 500,
-    title: '성별 범례',
-    format: '1,000'
-  },
-  yAxis: {
-    title: '혈액형'
-  },
-  xAxis: {
-    title: '수혈자',
-    suffix: '명'
-  },
-  legend: {
-    visible: false
-  },
-  theme: "myTheme"
-};
-
-const barChart = tuiChart.barChart(document.getElementById('bar-chart'), barChartData, barChartOptions);
 
 const lineColumnData = {
   categories: ['남자', '여자', '모두'],
@@ -135,6 +92,49 @@ const lineColumnOptions = {
 };
 
 const lineColumnChart = tuiChart.comboChart(document.getElementById('line-column'), lineColumnData, lineColumnOptions);
+
+const barChartData = {
+  categories: ['O', 'A', 'B', 'AB'],
+  series: [
+    {
+      name: '남자',
+      data: [164350, 207708, 162275, 69444]
+    },
+    {
+      name: '여자',
+      data: [69846, 84416, 68453, 28708]
+    }
+  ]
+};
+
+const theme = {
+  series: {
+    colors: ["#289399", "#295ba0"]
+  }
+};
+
+tuiChart.registerTheme("myTheme", theme);
+const barChartOptions = {
+  chart: {
+    width: 400,
+    height: 500,
+    title: '성별 범례',
+    format: '1,000'
+  },
+  yAxis: {
+    title: '혈액형'
+  },
+  xAxis: {
+    title: '수혈자',
+    suffix: '명'
+  },
+  legend: {
+    visible: false
+  },
+  theme: "myTheme"
+};
+
+const barChart = tuiChart.barChart(document.getElementById('bar-chart'), barChartData, barChartOptions);
 
 donutChart.on('changeCheckedLegends', info => {
   const checkedInfo = info[donutChart.chartType];
