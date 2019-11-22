@@ -83,8 +83,8 @@
 
 .. |link_1| raw:: html 
 
-  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-series.md#showing-label-on-series-area" target="_blank">문서 링크</a>
+  <a href="https://github.com/nhn/tui.chart/blob/master/docs/wiki/features-series.md#showing-label-on-series-area" target="_blank">문서 링크</a>
 
 .. |link_2| raw:: html 
 
-  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph" target="_blank">문서 링크</a>
+  <a href="https://github.com/nhn/tui.chart/blob/master/docs/wiki/chart-types-pie.md#displaying-a-legend-label-to-each-center-of-a-piece-in-the-pie-graph" target="_blank">문서 링크</a>

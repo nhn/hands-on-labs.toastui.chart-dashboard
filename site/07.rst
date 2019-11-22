@@ -54,7 +54,7 @@
 
   const theme = {
     series: {
-      colors: ["#289399", "#295ba0"]
+      colors: ['#289399', '#295ba0']
     }
   };
 
@@ -79,7 +79,7 @@
 
 .. |link_1| raw:: html 
 
-  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-axes.md" target="_blank">문서 링크</a>
+  <a href="https://github.com/nhn/tui.chart/blob/master/docs/wiki/features-axes.md" target="_blank">문서 링크</a>
 
 .. |link_2| raw:: html 
 

@@ -68,7 +68,7 @@
       title: '혈액형'
     },
     xAxis: {
-      title: '수혈자',
+      title: '수혈자'
     }
   };
 
@@ -101,4 +101,4 @@ html에 바 차트를 그리기 위한 공간 만들기
 
 .. |link_1| raw:: html 
 
-  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/chart-types-column-line-combo.md" target="_blank">문서 링크</a>
+  <a href="https://github.com/nhn/tui.chart/blob/master/docs/wiki/chart-types-column-line-combo.md" target="_blank">문서 링크</a>

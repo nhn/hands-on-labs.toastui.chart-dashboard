@@ -75,7 +75,7 @@
 
 - |link_3|
 
-체크박스 변경 이벤트 리스너 만들어를 구현하여 나머지 차트에 반영시키기
+체크박스 변경 이벤트 리스너를 구현하여 나머지 차트에 반영시키기
 =====================
 
 **1. 대표 차트(도넛 차트)의 changeCheckedLegends 이벤트를 구독하기.**
@@ -91,7 +91,7 @@
   });
 
 
-**2.** :code:`changeCheckedLegends` **이벤트가 발생할 때마다 나머지 '바 차트'와 '라인-컬럼'차트의 데이터를 변경하여 다시 그려줍니다.**
+**2.** :code:`changeCheckedLegends` **이벤트가 발생할 때마다 나머지 `바 차트`와 `라인-컬럼`차트의 데이터를 변경하여 다시 그려줍니다.**
 
 미리 만들어둔 :code:`reMakeDataForBarChart` 와 :code:`reMakeDataForLineColumnChart` 함수를 이용하여 대표 차트에서 숨기기로 결정된 범례는 나머지 차트에서도 함께 보이지 않도록 데이터를 가공합니다. 함수 구현과 관련하여 **아래 3번 항목** 을 참고해주세요.
 
@@ -178,7 +178,7 @@
 결과 확인
 =====================
 
-아래는 완성된 모습입니다. 미리 완성된 예제는 `github 저장소의 example 디렉터리 <https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard/tree/master/example>`_  에서 확인할 수 있습니다.
+아래는 완성된 모습입니다. 미리 완성된 예제는 `github 저장소의 example 디렉터리 <https://github.com/nhn/hands-on-labs.toastui.chart-dashboard/tree/master/example>`_  에서 확인할 수 있습니다.
 
 
 .. image:: _static/step09.gif
@@ -186,7 +186,7 @@
 
 .. |link_1| raw:: html 
 
-  <a href="https://github.com/nhnent/tui.chart/blob/master/docs/wiki/features-legend.md" target="_blank">문서 링크</a>
+  <a href="https://github.com/nhn/tui.chart/blob/master/docs/wiki/features-legend.md" target="_blank">문서 링크</a>
 
 .. |link_2| raw:: html 
 

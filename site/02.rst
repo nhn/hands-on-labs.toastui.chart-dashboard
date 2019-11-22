@@ -9,7 +9,7 @@ TOAST UI Chart 설치 및 서버 실행하기
 
 .. code-block:: bash
 
-  $ git clone https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard
+  $ git clone https://github.com/nhn/hands-on-labs.toastui.chart-dashboard
 
 2. 아래와 같이 프로젝트 폴더로 이동한 후,  npm으로 튜토리얼 진행에 필요한 개발 환경을 설치합니다.
 

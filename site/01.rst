@@ -2,7 +2,7 @@
 개요
 ****
 
-TOAST UI Chart는 다양한 종류의 차트와 여러 가지 옵션이 있습니다. 차트의 기능을 활용하면 다양한 각도로 데이터를 표현할 수 있으며, 여러 가지 차트를 이용해서 데이터를 한눈에 이해하기 쉽도록 차트 대시보드 만들 수 있습니다.
+TOAST UI Chart는 FE개발랩에서 개발한 오픈소스 자바스크립트 라이브러리입니다. TOAST UI Chart를 이용하면 쉽고 아름답게 데이터를 한 눈에 이해할 수 있도록 도와줍니다. 이번 핸즈온 랩에서 TOAST UI Chart를 경험해보고 서비스에 적용해보세요!
 
 
 학습할 내용
@@ -25,4 +25,4 @@ TOAST UI Chart는 다양한 종류의 차트와 여러 가지 옵션이 있습�
 
 .. |link_1| raw:: html 
 
-  <a href="https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard" target="_blank">https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard</a>
+  <a href="https://github.com/nhn/hands-on-labs.toastui.chart-dashboard" target="_blank">https://github.com/nhn/hands-on-labs.toastui.chart-dashboard</a>

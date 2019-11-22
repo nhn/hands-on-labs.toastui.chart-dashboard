@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard.git"
+    "url": "git+https://github.com/nhn/hands-on-labs.toastui.chart-dashboard.git"
   },
   "keywords": [
     "NHN",
@@ -19,12 +19,12 @@
     "labs",
     "tui-chart"
   ],
-  "author": "jinwoo-kim-nhn",
+  "author": "nhn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard/issues"
+    "url": "https://github.com/nhn/hands-on-labs.toastui.chart-dashboard/issues"
   },
-  "homepage": "https://github.com/nhnent/hands-on-labs.toastui.chart-dashboard#readme",
+  "homepage": "https://github.com/nhn/hands-on-labs.toastui.chart-dashboard#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
