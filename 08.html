@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ko" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ko" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기 &mdash; TOAST UI Chart로 대시보드 만들기 1.0 문서</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+    <link rel="next" title="9. 정리" href="wrap-up.html" />
+    <link rel="prev" title="7. 바 차트에 추가 옵션 적용해보기" href="07.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> TOAST UI Chart로 대시보드 만들기
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01.html">1. 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2. TOAST UI Chart 설치 및 서버 실행하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3. 도넛 차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">4. 도넛 차트에 추가 옵션 적용해보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">5. 라인-컬럼 콤보차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.html">6. 바 차트 생성하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07.html">7. 바 차트에 추가 옵션 적용해보기</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">8.1. 대표 차트(도넛 차트)를 제외한 모든 차트의 범례 표시 영역을 감추기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">8.2. 대표 차트(도넛 차트)에 차트에 레전드 체크박스 옵션 적용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">8.3. 범례 동기화 기능을 구현하기 위하여 위키 문서를 참고하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">8.4. 체크박스 변경 이벤트 리스너를 구현하여 나머지 차트에 반영시키기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">8.5. 결과 확인</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">9. 정리</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TOAST UI Chart로 대시보드 만들기</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>8. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>8. 대표차트(도넛 차트)에 범례 체크박스 옵션을 추가하고 차트 전체에 반영되도록 하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<p>범례 체크박스의 체크 상태가 변경되면 <code class="code docutils literal notranslate"><span class="pre">unchecked</span></code> 된 범례는 차트의 그래프에 보이지 않게 됩니다.</p>
+<p>이번 단계에서는 대표 차트에서 <strong>범례 체크박스</strong> 를 변경하면 다른 모든 차트에 함께 적용되도록 만듭니다. 앞으로는 이 기능을 <strong>범례 동기화 기능</strong> 이라고 명명하겠습니다.</p>
+<p>이해를 돕기 위한 완성된 모습의 이미지입니다. <strong>위 쪽은 모든 혈액형</strong> 이 선택된 모습이고 <strong>아래 쪽은 O형과 A형</strong> 만 선택된 모습입니다.</p>
+<img alt="_images/step08.png" src="_images/step08.png" />
+<p>아래 링크를 통해 체크박스 옵션 적용에 대해 자세히 알 수 있습니다.</p>
+<ul class="simple">
+<li><p><a href="https://github.com/nhn/tui.chart/blob/master/docs/wiki/features-legend.md" target="_blank">문서 링크</a></p></li>
+</ul>
+<div class="section" id="id2">
+<h2>8.1. 대표 차트(도넛 차트)를 제외한 모든 차트의 범례 표시 영역을 감추기<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<p>대표 차트에서만 범례를 보이거나 보이지 않도록 설정하고 싶기 때문에 대표 차트를 제외한 차트에서는 범례 체크박스 영역이 필요 없음으로 문서에서 확인한 <code class="code docutils literal notranslate"><span class="pre">legend.visible</span></code> 옵션을 활용하여 숨깁니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="c1">//...</span>
+<span class="kr">const</span> <span class="nx">barChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">visible</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="p">...</span>
+<span class="kr">const</span> <span class="nx">lineColumnOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">visible</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>8.2. 대표 차트(도넛 차트)에 차트에 레전드 체크박스 옵션 적용하기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<p>앞에서 확인했던 위키 문서를 참고하여 대표 차트의 <code class="code docutils literal notranslate"><span class="pre">legend.visible</span></code> 옵션을 활성화하고 <code class="code docutils literal notranslate"><span class="pre">legend.align</span></code> 옵션으로 차트의 가장 상단에 범례 영역을 위치시킵니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="c1">//...</span>
+<span class="kr">const</span> <span class="nx">donutChartOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">visible</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">align</span><span class="o">:</span> <span class="s1">&#39;top&#39;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>이제 도넛 차트에만 혈액형 범례의 체크박스가 나오는 것을 확인할 수 있습니다.</p>
+</div>
+<div class="section" id="id4">
+<h2>8.3. 범례 동기화 기능을 구현하기 위하여 위키 문서를 참고하기<a class="headerlink" href="#id4" title="제목 주소">¶</a></h2>
+<p>기능을 완성하기 위해서는 아래의 두 가지 차트의 기능을 이용해야 합니다.</p>
+<ol class="arabic simple">
+<li><p>changeCheckedLegends 이벤트 탐지하기</p></li>
+</ol>
+<ul class="simple">
+<li><p><a href="https://nhn.github.io/tui.chart/latest/ChartBase#event-changeCheckedLegends" target="_blank">문서 링크</a></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>setData API를 이용해 체크된 데이터만 표시하여 다시 그리기</p></li>
+</ol>
+<ul class="simple">
+<li><p><a href="https://nhn.github.io/tui.chart/latest/ChartBase#setData" target="_blank">문서 링크</a></p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>8.4. 체크박스 변경 이벤트 리스너를 구현하여 나머지 차트에 반영시키기<a class="headerlink" href="#id5" title="제목 주소">¶</a></h2>
+<p><strong>1. 대표 차트(도넛 차트)의 changeCheckedLegends 이벤트를 구독하기.</strong></p>
+<p>앞에서 확인한 문서를 바탕으로 대표 차트(도넛 차트)의 <code class="code docutils literal notranslate"><span class="pre">changeCheckedLegends</span></code> 이벤트를 가로채어 변경된 범례 정보를 확인합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="nx">donutChart</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;changeCheckedLegends&#39;</span><span class="p">,</span> <span class="nx">info</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">info</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><strong>2.</strong> <code class="code docutils literal notranslate"><span class="pre">changeCheckedLegends</span></code> <strong>이벤트가 발생할 때마다 나머지 `바 차트`와 `라인-컬럼`차트의 데이터를 변경하여 다시 그려줍니다.</strong></p>
+<p>미리 만들어둔 <code class="code docutils literal notranslate"><span class="pre">reMakeDataForBarChart</span></code> 와 <code class="code docutils literal notranslate"><span class="pre">reMakeDataForLineColumnChart</span></code> 함수를 이용하여 대표 차트에서 숨기기로 결정된 범례는 나머지 차트에서도 함께 보이지 않도록 데이터를 가공합니다. 함수 구현과 관련하여 <strong>아래 3번 항목</strong> 을 참고해주세요.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="nx">donutChart</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;changeCheckedLegends&#39;</span><span class="p">,</span> <span class="nx">info</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">checkedInfo</span> <span class="o">=</span> <span class="nx">info</span><span class="p">[</span><span class="nx">donutChart</span><span class="p">.</span><span class="nx">chartType</span><span class="p">];</span>
+
+  <span class="c1">// For barChart</span>
+  <span class="nx">barChart</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="nx">reMakeDataForBarChart</span><span class="p">(</span><span class="nx">barChartData</span><span class="p">,</span> <span class="nx">checkedInfo</span><span class="p">));</span>
+
+  <span class="c1">// For comboChart</span>
+  <span class="nx">lineColumnChart</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="nx">reMakeDataForLineColumnChart</span><span class="p">(</span><span class="nx">lineColumnData</span><span class="p">,</span> <span class="nx">checkedInfo</span><span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><strong>3. 《미리 구현한 데이터 가공 함수》 참고</strong></p>
+<p>가공 함수의 역할은 대표 차트의 <strong>혈액형 범례</strong> 에서 그래프로 그리지 않기로 결정된 혈액형에 대하여 나머지 차트 데이터에서도 제거하여 줍니다.</p>
+<p><strong>라인-컬럼 차트</strong> 는 사실 차트 2개(라인 차트, 컬럼 차트)가 합쳐진 <strong>콤보 차트</strong> 이므로 <strong>라인 차트 가공 함수</strong> 와 <strong>컬럼 차트 가공 함수</strong> 를 함께 구현합니다.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// src/index.js</span>
+
+<span class="c1">// 바 차트 가공</span>
+<span class="kd">function</span> <span class="nx">reMakeDataForBarChart</span><span class="p">(</span><span class="nx">originalData</span><span class="p">,</span> <span class="nx">checkedInfo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">barChartSeriesData</span> <span class="o">=</span> <span class="nx">originalData</span><span class="p">.</span><span class="nx">series</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">newBarChartSeriesData</span> <span class="o">=</span> <span class="nx">barChartSeriesData</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">seriesItem</span> <span class="p">=&gt;</span> <span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nx">seriesItem</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">seriesItem</span><span class="p">.</span><span class="nx">data</span><span class="p">).</span><span class="nx">filter</span><span class="p">((</span><span class="nx">value</span><span class="p">,</span> <span class="nx">valueIdx</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">checkedInfo</span><span class="p">[</span><span class="nx">valueIdx</span><span class="p">])</span>
+  <span class="p">}));</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">categories</span><span class="o">:</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">originalData</span><span class="p">.</span><span class="nx">categories</span><span class="p">).</span><span class="nx">filter</span><span class="p">((</span><span class="nx">value</span><span class="p">,</span> <span class="nx">valueIdx</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">checkedInfo</span><span class="p">[</span><span class="nx">valueIdx</span><span class="p">]),</span>
+    <span class="nx">series</span><span class="o">:</span> <span class="nx">newBarChartSeriesData</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// 라인-컬럼 차트 가공</span>
+<span class="kd">function</span> <span class="nx">reMakeDataForLineColumnChart</span><span class="p">(</span><span class="nx">originalData</span><span class="p">,</span> <span class="nx">checkedInfo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">comboChartSeriesData</span> <span class="o">=</span> <span class="nx">originalData</span><span class="p">.</span><span class="nx">series</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">categories</span><span class="o">:</span> <span class="nx">originalData</span><span class="p">.</span><span class="nx">categories</span><span class="p">,</span>
+    <span class="nx">series</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">column</span><span class="o">:</span> <span class="nx">reMakeDataForColumnChart</span><span class="p">(</span><span class="nx">comboChartSeriesData</span><span class="p">.</span><span class="nx">column</span><span class="p">,</span> <span class="nx">checkedInfo</span><span class="p">),</span>
+      <span class="nx">line</span><span class="o">:</span> <span class="nx">reMakeDataForLineChart</span><span class="p">(</span><span class="nx">comboChartSeriesData</span><span class="p">.</span><span class="nx">line</span><span class="p">,</span> <span class="nx">comboChartSeriesData</span><span class="p">.</span><span class="nx">column</span><span class="p">,</span> <span class="nx">checkedInfo</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// 컬럼차트 가공</span>
+<span class="kd">function</span> <span class="nx">reMakeDataForColumnChart</span><span class="p">(</span><span class="nx">originalData</span><span class="p">,</span> <span class="nx">checkedInfo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">originalData</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">seriesItem</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">seriesItem</span><span class="p">,</span> <span class="p">{</span><span class="nx">visible</span><span class="o">:</span> <span class="nx">checkedInfo</span><span class="p">[</span><span class="nx">idx</span><span class="p">]})</span>
+  <span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// 라인차트 가공</span>
+<span class="kd">function</span> <span class="nx">reMakeDataForLineChart</span><span class="p">(</span><span class="nx">lineChartSeriesData</span><span class="p">,</span> <span class="nx">columnChartSeriesData</span><span class="p">,</span> <span class="nx">checkedInfo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">makeTotalAverage</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+    <span class="nx">columnChartSeriesData</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">accumulator</span><span class="p">,</span> <span class="nx">seriesItem</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">checkedInfo</span><span class="p">[</span><span class="nx">idx</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">accumulator</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">accValue</span><span class="p">,</span> <span class="nx">accIdx</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">accumulator</span><span class="p">[</span><span class="nx">accIdx</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">seriesItem</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">accIdx</span><span class="p">];</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+
+      <span class="k">return</span> <span class="nx">accumulator</span><span class="p">;</span>
+    <span class="p">},</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]).</span><span class="nx">map</span><span class="p">(</span><span class="nx">totalValue</span> <span class="p">=&gt;</span> <span class="nx">totalValue</span> <span class="o">/</span> <span class="p">(</span><span class="nx">checkedInfo</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">checkInfo</span> <span class="p">=&gt;</span> <span class="nx">checkInfo</span><span class="p">).</span><span class="nx">length</span><span class="p">))</span>
+  <span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">lineChartSeriesData</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">seriesItem</span> <span class="p">=&gt;</span> <span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nx">seriesItem</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="nx">makeTotalAverage</span><span class="p">()</span>
+  <span class="p">}));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>8.5. 결과 확인<a class="headerlink" href="#id6" title="제목 주소">¶</a></h2>
+<p>아래는 완성된 모습입니다. 미리 완성된 예제는 <a class="reference external" href="https://github.com/nhn/hands-on-labs.toastui.chart-dashboard/tree/master/example">github 저장소의 example 디렉터리</a>  에서 확인할 수 있습니다.</p>
+<img alt="_images/step09.gif" src="_images/step09.gif" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wrap-up.html" class="btn btn-neutral float-right" title="9. 정리" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="07.html" class="btn btn-neutral float-left" title="7. 바 차트에 추가 옵션 적용해보기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright NHN Corp. All rights reserved.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
