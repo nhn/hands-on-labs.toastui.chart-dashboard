@@ -17,7 +17,7 @@
   // src/index.js
 
   const lineColumnData = {
-    categories: ['남자', '여자' , '모두'],
+    categories: ['남자', '여자', '모두'],
     series: {
       column: [
         {

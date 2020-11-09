@@ -15,8 +15,8 @@ TOAST UI Chart 설치 및 서버 실행하기
 
 .. code-block:: bash
 
-  cd hands-on-labs.toastui.chart-dashboard
-  npm install
+  $ cd hands-on-labs.toastui.chart-dashboard
+  $ npm install
 
 TOAST UI Chart 설치
 =====================
@@ -25,7 +25,7 @@ npm을 통해 TOAST UI를 디펜던시로 설치합니다.
 
 .. code-block:: bash
 
-  npm install tui-chart
+  $ npm install tui-chart
 
 
 개발 서버 실행
@@ -35,5 +35,5 @@ npm을 통해 TOAST UI를 디펜던시로 설치합니다.
 
 .. code-block:: bash
 
-   npm run serve
+  $ npm run serve
 
