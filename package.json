@@ -35,7 +35,7 @@
     "mini-css-extract-plugin": "^0.4.3",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.11.3"
   },
   "dependencies": {
     "tui-chart": "^3.9.0"
